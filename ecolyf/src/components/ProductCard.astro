@@ -1,0 +1,31 @@
+---
+const { product } = Astro.props;
+
+const filterHook = product.category ? product.category.toLowerCase() : 'all';
+---
+
+<div class="product-card transition-all duration-300" data-category={filterHook}>
+  
+  <a href={`/products/${product.slug}`} class="block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 transform hover:-translate-y-1 group">
+    
+    <div class="h-64 bg-gray-100 relative overflow-hidden">
+      <img src={product.image} alt={product.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" />
+      <div class="absolute top-4 left-4 bg-white/90 backdrop-blur border border-gray-200 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+        {product.category}
+      </div>
+    </div>
+    
+    <div class="p-6">
+      <h4 class="text-xl font-extrabold text-gray-900 mb-2 group-hover:text-green-700 transition-colors">{product.name}</h4>
+      <p class="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
+      
+      <div class="border-t border-gray-100 pt-4 flex items-center justify-between">
+        <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">MOQ: 50k</span>
+        <span class="text-green-600 font-semibold text-sm flex items-center">
+          View Specs <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </span>
+      </div>
+    </div>
+
+  </a>
+</div>

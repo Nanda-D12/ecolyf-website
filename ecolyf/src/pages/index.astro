@@ -1,0 +1,70 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import Logistics from '../components/Logistics.astro';
+import ProductCard from '../components/ProductCard.astro';
+import OemSection from '../components/OemSection.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import Comparison from '../components/Comparison.astro';
+import ImpactCalculator from '../components/ImpactCalculator.astro';
+import FAQ from '../components/FAQ.astro';
+
+// Pulling directly from your new database
+import productsData from '../data/products.json';
+const featuredProducts = productsData.slice(0, 3); // Only show top 3 on homepage
+---
+
+<MainLayout 
+  title="Manufacturer & Exporter of Eco-Friendly Bagasse" 
+  description="Global export partner for 100% biodegradable bagasse plates, trays, and bowls."
+>
+  <Hero />
+
+  <Comparison />
+
+  <section class="py-24 px-4 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-sm font-bold text-green-700 tracking-widest uppercase mb-2">Export Catalog</h2>
+      <h3 class="text-4xl font-extrabold text-gray-900">High-Volume Export Products</h3>
+      <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">Manufactured to strict international standards for restaurants, airlines, and institutional catering.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {featuredProducts.map(product => (
+        <ProductCard product={product} />
+      ))}
+    </div>
+    <div class="text-center mt-12">
+      <a href="/products" class="inline-flex items-center text-green-800 font-bold hover:text-green-600 transition-colors text-lg border-b-2 border-green-800 hover:border-green-600 pb-1">
+        Explore Full Catalog 
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+      </a>
+    </div>
+  </section>
+
+  <OemSection />
+
+  <ImpactCalculator />
+
+  <Logistics />
+
+  <FAQ />
+
+  <section id="quote" class="bg-green-900 py-24 px-4 border-t-8 border-green-500">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="text-white">
+        <h2 class="text-4xl font-extrabold mb-6">Ready to scale your supply?</h2>
+        <p class="text-xl text-green-100 mb-8 leading-relaxed">
+          Skip the middlemen. Buy directly from the manufacturer. Fill out the form to get our latest FOB/CIF pricing for 20ft and 40ft container loads. Our export team responds within 12 hours.
+        </p>
+        <div class="space-y-4">
+          <p class="flex items-center text-green-200"><strong class="text-white w-24">Email:</strong> sales@EcoLyf.com</p>
+          <p class="flex items-center text-green-200"><strong class="text-white w-24">HQ:</strong> Madurai, Tamil Nadu, India</p>
+        </div>
+      </div>
+      <div>
+        <QuoteForm />
+      </div>
+    </div>
+  </section>
+</MainLayout>

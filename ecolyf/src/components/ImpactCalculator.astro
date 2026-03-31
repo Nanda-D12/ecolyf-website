@@ -1,0 +1,79 @@
+---
+---
+<section class="py-20 bg-green-950 text-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-extrabold mb-4">Calculate Your Sustainability ROI</h2>
+      <p class="text-green-200">See the exact environmental impact your company makes by switching to EcoLyf Bagasse for your monthly tableware volume.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-gray-900 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="space-y-8">
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">Monthly Plate Volume (Pieces)</label>
+          <input type="range" id="calc-volume" min="10000" max="1000000" step="10000" value="100000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-600">
+          <div class="text-right mt-2 font-black text-xl text-green-800" id="val-volume">100,000</div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">Current Material Replacing</label>
+          <select id="calc-material" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-3">
+            <option value="plastic">Standard Plastic</option>
+            <option value="styrofoam">Styrofoam (EPS)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="bg-green-50 rounded-xl p-6 border border-green-100 flex flex-col justify-center space-y-6">
+        <div>
+          <p class="text-xs font-bold text-green-800 uppercase tracking-widest">Toxic Material Diverted</p>
+          <p class="text-3xl font-black text-gray-900" id="out-plastic">1,500 kg</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-green-800 uppercase tracking-widest">CO2 Emissions Saved</p>
+          <p class="text-3xl font-black text-gray-900" id="out-co2">9.00 Tonnes</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-green-800 uppercase tracking-widest">Equivalent Trees Planted</p>
+          <p class="text-3xl font-black text-gray-900" id="out-trees">428 Trees</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Astro runs this JS on the client automatically
+  const volSlider = document.getElementById('calc-volume');
+  const matSelect = document.getElementById('calc-material');
+  const valDisplay = document.getElementById('val-volume');
+  
+  const outPlastic = document.getElementById('out-plastic');
+  const outCo2 = document.getElementById('out-co2');
+  const outTrees = document.getElementById('out-trees');
+
+  function calculate() {
+    const volume = parseInt(volSlider.value);
+    const material = matSelect.value;
+    
+    valDisplay.textContent = volume.toLocaleString();
+
+    // Math: Assume avg plate is 15g (0.015 kg)
+    const weightKg = volume * 0.015;
+    
+    // Multipliers: Plastic = ~6kg CO2 per 1kg. Styrofoam = ~8.5kg CO2 per 1kg.
+    const co2Multiplier = material === 'styrofoam' ? 8.5 : 6.0;
+    const totalCo2 = weightKg * co2Multiplier;
+    
+    // Trees: ~21kg of CO2 absorbed per tree per year
+    const trees = Math.round(totalCo2 / 21);
+
+    outPlastic.textContent = weightKg.toLocaleString() + ' kg';
+    outCo2.textContent = (totalCo2 / 1000).toFixed(2) + ' Tonnes';
+    outTrees.textContent = trees.toLocaleString() + ' Trees';
+  }
+
+  volSlider.addEventListener('input', calculate);
+  matSelect.addEventListener('change', calculate);
+  calculate(); // Run on load
+</script>

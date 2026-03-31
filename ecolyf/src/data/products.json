@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "10-inch-round-plate",
+    "name": "10-inch Bagasse Round Plate",
+    "category": "Plates",
+    "description": "Heavy-duty, 100% biodegradable round plates perfect for main courses and buffets. Oil and water-resistant.",
+    "specs": {
+      "diameter": "260mm",
+      "weightPerPiece": "20g",
+      "material": "100% Sugarcane Bagasse",
+      "packing": "50 pcs/sleeve, 10 sleeves/carton (500 pcs/carton)",
+      "cartonDimensions": "530 x 270 x 280 mm"
+    },
+    "features": ["Microwave Safe", "Freezer Safe", "Compostable within 90 days"],
+    "image": "/products/10-in-plate.webp"
+  },
+  {
+    "slug": "5-compartment-tray",
+    "name": "5-Compartment Meal Tray",
+    "category": "Trays",
+    "description": "Ideal for institutional catering, cafeterias, and takeaway meals. Deep compartments prevent food mixing.",
+    "specs": {
+      "dimensions": "320 x 220 x 25 mm",
+      "weightPerPiece": "35g",
+      "material": "100% Sugarcane Bagasse",
+      "packing": "50 pcs/sleeve, 5 sleeves/carton (250 pcs/carton)",
+      "cartonDimensions": "450 x 330 x 260 mm"
+    },
+    "features": ["Rigid construction", "Spill-resistant", "PFAS-Free options available"],
+    "image": "/products/10-in-plate.webp"
+  },
+  {
+    "slug": "6-inch-dessert-plate",
+    "name": "6-inch Dessert Plate",
+    "category": "Plates",
+    "description": "Small, sturdy plates designed for appetizers, desserts, and side dishes.",
+    "specs": {
+      "diameter": "150mm",
+      "weightPerPiece": "10g",
+      "material": "100% Sugarcane Bagasse",
+      "packing": "50 pcs/sleeve, 20 sleeves/carton (1000 pcs/carton)",
+      "cartonDimensions": "320 x 320 x 320 mm"
+    },
+    "features": ["Microwave Safe", "Biodegradable", "High heat tolerance"],
+    "image": "/products/10-in-plate.webp"
+  }
+]
