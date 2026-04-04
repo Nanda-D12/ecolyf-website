@@ -1,1 +1,16 @@
+/* global.css */
 @import "tailwindcss";
+
+@theme {
+  --color-brand-50: #ebfef1;
+  --color-brand-100: #cefde1;
+  --color-brand-200: #a1fac6;
+  --color-brand-300: #65f39e;
+  --color-brand-400: #2ce674;
+  --color-brand-500: #0bd055; /* Vibrant, high-energy neon/leaf green */
+  --color-brand-600: #04a741; /* Slightly deeper for text contrast */
+  --color-brand-700: #068436;
+  --color-brand-800: #09682e;
+  --color-brand-900: #095528;
+  --color-brand-950: #033015;
+}

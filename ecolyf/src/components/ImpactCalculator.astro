@@ -1,79 +1,121 @@
 ---
+// ImpactCalculator.astro
 ---
-<section class="py-20 bg-green-950 text-white">
-  <div class="max-w-5xl mx-auto px-4">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-extrabold mb-4">Calculate Your Sustainability ROI</h2>
-      <p class="text-green-200">See the exact environmental impact your company makes by switching to EcoLyf Bagasse for your monthly tableware volume.</p>
+{/* Reduced padding from py-24 to py-16 to pull the section boundaries in */}
+<section class="py-16 bg-brand-600 text-white relative overflow-hidden shadow-inner">
+  
+  {/* Switched the orb to bright white to create a glowing focal point behind the card */}
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-48 bg-white/20 blur-[100px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-5xl mx-auto px-4 relative z-10">
+    
+    {/* Tightened the header margins and scaled down the text slightly */}
+    <div class="text-center mb-10">
+      <h2 class="text-brand-100 font-extrabold tracking-widest uppercase text-sm mb-2">Data-Driven Sustainability</h2>
+      <h3 class="text-3xl md:text-4xl font-extrabold mb-4">Calculate Your Impact</h3>
+      <p class="text-base text-brand-50 max-w-2xl mx-auto font-medium">
+        See the exact environmental footprint your company erases by switching to EcoLyf Bagasse for your monthly tableware volume.
+      </p>
     </div>
 
-    <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 text-gray-900 grid grid-cols-1 md:grid-cols-2 gap-12">
-      <div class="space-y-8">
+    {/* Drastically reduced card padding (p-6 md:p-8) and gap (gap-8) */}
+    <div class="bg-white rounded-3xl shadow-2xl shadow-brand-900/20 p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8 border border-brand-400">
+      
+      {/* Input Side - Tightened vertical rhythm (space-y-6) */}
+      <div class="space-y-6 flex flex-col justify-center">
         <div>
-          <label class="block text-sm font-bold text-gray-700 mb-2">Monthly Plate Volume (Pieces)</label>
-          <input type="range" id="calc-volume" min="10000" max="1000000" step="10000" value="100000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-600">
-          <div class="text-right mt-2 font-black text-xl text-green-800" id="val-volume">100,000</div>
+          <div class="flex justify-between items-end mb-2">
+            <label class="block text-base font-extrabold text-gray-900">Monthly Volume</label>
+            <div class="text-right font-black text-2xl text-brand-600" id="val-volume">100,000</div>
+          </div>
+          <input type="range" id="calc-volume" min="10000" max="1000000" step="10000" value="100000" class="w-full h-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-500 hover:accent-brand-400 transition-all">
+          <div class="flex justify-between text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-wider">
+            <span>10k Pieces</span>
+            <span>1M+ Pieces</span>
+          </div>
         </div>
 
         <div>
-          <label class="block text-sm font-bold text-gray-700 mb-2">Current Material Replacing</label>
-          <select id="calc-material" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-3">
+          <label class="block text-base font-extrabold text-gray-900 mb-2">Material to Replace</label>
+          <select id="calc-material" class="w-full bg-gray-50 border-2 border-gray-200 text-gray-900 text-base font-bold rounded-xl focus:ring-0 focus:border-brand-500 block p-3 transition-colors cursor-pointer hover:border-brand-300 shadow-sm">
             <option value="plastic">Standard Plastic</option>
             <option value="styrofoam">Styrofoam (EPS)</option>
           </select>
         </div>
       </div>
 
-      <div class="bg-green-50 rounded-xl p-6 border border-green-100 flex flex-col justify-center space-y-6">
-        <div>
-          <p class="text-xs font-bold text-green-800 uppercase tracking-widest">Toxic Material Diverted</p>
-          <p class="text-3xl font-black text-gray-900" id="out-plastic">1,500 kg</p>
+      {/* Output Side - Compacted icons, text, and padding */}
+      <div class="bg-brand-50 rounded-2xl p-6 border-2 border-brand-200 flex flex-col justify-center space-y-5 shadow-inner">
+        
+        <div class="flex items-center group">
+          <div class="bg-white p-2.5 rounded-lg shadow-sm border border-brand-100 mr-4 text-brand-600 group-hover:scale-105 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+          </div>
+          <div>
+            <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-0.5">Toxic Material Diverted</p>
+            <p class="text-2xl font-black text-brand-700 tracking-tight leading-none" id="out-plastic">1,500 kg</p>
+          </div>
         </div>
-        <div>
-          <p class="text-xs font-bold text-green-800 uppercase tracking-widest">CO2 Emissions Saved</p>
-          <p class="text-3xl font-black text-gray-900" id="out-co2">9.00 Tonnes</p>
+
+        <div class="flex items-center group">
+          <div class="bg-white p-2.5 rounded-lg shadow-sm border border-brand-100 mr-4 text-brand-600 group-hover:scale-105 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+          </div>
+          <div>
+            <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-0.5">CO₂ Emissions Saved</p>
+            <p class="text-2xl font-black text-brand-700 tracking-tight leading-none" id="out-co2">9.00 Tonnes</p>
+          </div>
         </div>
-        <div>
-          <p class="text-xs font-bold text-green-800 uppercase tracking-widest">Equivalent Trees Planted</p>
-          <p class="text-3xl font-black text-gray-900" id="out-trees">428 Trees</p>
+
+        <div class="flex items-center group">
+          <div class="bg-white p-2.5 rounded-lg shadow-sm border border-brand-100 mr-4 text-brand-600 group-hover:scale-105 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+          </div>
+          <div>
+            <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-0.5">Equivalent Trees Planted</p>
+            <p class="text-2xl font-black text-brand-700 tracking-tight leading-none" id="out-trees">428 Trees</p>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  // Astro runs this JS on the client automatically
-  const volSlider = document.getElementById('calc-volume');
-  const matSelect = document.getElementById('calc-material');
-  const valDisplay = document.getElementById('val-volume');
-  
-  const outPlastic = document.getElementById('out-plastic');
-  const outCo2 = document.getElementById('out-co2');
-  const outTrees = document.getElementById('out-trees');
-
-  function calculate() {
-    const volume = parseInt(volSlider.value);
-    const material = matSelect.value;
+  function initCalculator() {
+    const volSlider = document.getElementById('calc-volume');
+    const matSelect = document.getElementById('calc-material');
+    const valDisplay = document.getElementById('val-volume');
     
-    valDisplay.textContent = volume.toLocaleString();
+    const outPlastic = document.getElementById('out-plastic');
+    const outCo2 = document.getElementById('out-co2');
+    const outTrees = document.getElementById('out-trees');
 
-    // Math: Assume avg plate is 15g (0.015 kg)
-    const weightKg = volume * 0.015;
-    
-    // Multipliers: Plastic = ~6kg CO2 per 1kg. Styrofoam = ~8.5kg CO2 per 1kg.
-    const co2Multiplier = material === 'styrofoam' ? 8.5 : 6.0;
-    const totalCo2 = weightKg * co2Multiplier;
-    
-    // Trees: ~21kg of CO2 absorbed per tree per year
-    const trees = Math.round(totalCo2 / 21);
+    if (!volSlider || !matSelect) return;
 
-    outPlastic.textContent = weightKg.toLocaleString() + ' kg';
-    outCo2.textContent = (totalCo2 / 1000).toFixed(2) + ' Tonnes';
-    outTrees.textContent = trees.toLocaleString() + ' Trees';
+    function calculate() {
+      const volume = parseInt((volSlider as HTMLInputElement).value);
+      const material = (matSelect as HTMLSelectElement).value;
+      
+      if (valDisplay) valDisplay.textContent = volume.toLocaleString();
+
+      const weightKg = volume * 0.015;
+      const co2Multiplier = material === 'styrofoam' ? 8.5 : 6.0;
+      const totalCo2 = weightKg * co2Multiplier;
+      const trees = Math.round(totalCo2 / 21);
+
+      if (outPlastic) outPlastic.textContent = weightKg.toLocaleString() + ' kg';
+      if (outCo2) outCo2.textContent = (totalCo2 / 1000).toFixed(2) + ' Tonnes';
+      if (outTrees) outTrees.textContent = trees.toLocaleString() + ' Trees';
+    }
+
+    volSlider.addEventListener('input', calculate);
+    matSelect.addEventListener('change', calculate);
+    
+    calculate();
   }
 
-  volSlider.addEventListener('input', calculate);
-  matSelect.addEventListener('change', calculate);
-  calculate(); // Run on load
+  document.addEventListener('DOMContentLoaded', initCalculator);
+  document.addEventListener('astro:page-load', initCalculator);
 </script>

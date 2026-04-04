@@ -1,0 +1,85 @@
+---
+// ContactSection.astro
+---
+<section id="contact" class="py-24 bg-brand-50/30 scroll-mt-16 border-t border-brand-100 relative overflow-hidden">
+  
+  <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-200/40 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <div class="text-center mb-24">
+      <h2 class="text-sm font-extrabold text-brand-600 tracking-widest uppercase mb-3">Get in Touch</h2>
+      <h3 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">Ready to Scale?</h3>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
+        Whether you need a custom bulk order of bagasse plates or have a simple enquiry, our team is ready to deliver.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 mt-12">
+      
+      {/* Card 1: Direct Lines */}
+      {/* Added 'group' class to parent to control the icon animation cleanly */}
+      <div class="group bg-white rounded-2xl shadow-xl shadow-brand-900/5 p-8 border border-brand-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative">
+        
+        {/* The Fix: Removed rotation, added a subtle scale effect on hover for a premium feel */}
+        <div class="absolute -top-8 left-8 w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center shadow-lg shadow-brand-500/40 text-white transition-transform duration-300 group-hover:scale-105">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        </div>
+        
+        <h3 class="text-2xl font-extrabold text-gray-900 mb-6 mt-4">Direct Contact</h3>
+        <ul class="space-y-5 text-gray-600 font-medium">
+          <li class="flex flex-col sm:flex-row sm:items-center">
+            <span class="font-bold text-gray-900 mr-2">Mobile:</span> 
+            <a href="tel:+919876543210" class="text-brand-600 font-bold hover:text-brand-500 underline decoration-brand-300 hover:decoration-brand-500 underline-offset-4 transition-all">
+              +91 98765 43210
+            </a>
+          </li>
+          <li class="flex flex-col sm:flex-row sm:items-center">
+            <span class="font-bold text-gray-900 mr-2">Email:</span> 
+            <a href="mailto:sales@ecolyf.com" class="text-brand-600 font-bold hover:text-brand-500 underline decoration-brand-300 hover:decoration-brand-500 underline-offset-4 transition-all">
+              sales@ecolyf.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Card 2: Corporate HQ */}
+      <div class="group bg-white rounded-2xl shadow-xl shadow-brand-900/5 p-8 border border-brand-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative">
+        <div class="absolute -top-8 left-8 w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center shadow-lg shadow-brand-500/40 text-white transition-transform duration-300 group-hover:scale-105">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        </div>
+        
+        <h3 class="text-2xl font-extrabold text-gray-900 mb-6 mt-4">Corporate Office</h3>
+        <address class="not-italic text-gray-600 font-medium space-y-1 mb-5">
+          <p>Kattur</p>
+          <p>Trichy, Tamil Nadu 625001</p>
+          <p>India</p>
+        </address>
+        <a href="https://maps.google.com/?q=Phase+II,+Eco+Industrial+Estate,+Madurai,+Tamil+Nadu+625001" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm text-brand-600 font-bold hover:text-brand-500 underline decoration-brand-300 hover:decoration-brand-500 underline-offset-4 transition-all">
+          Get Directions
+          <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+
+      {/* Card 3: Social & Digital */}
+      <div class="group bg-white rounded-2xl shadow-xl shadow-brand-900/5 p-8 border border-brand-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative">
+        <div class="absolute -top-8 left-8 w-16 h-16 bg-brand-500 rounded-2xl flex items-center justify-center shadow-lg shadow-brand-500/40 text-white transition-transform duration-300 group-hover:scale-105">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+        </div>
+        
+        <h3 class="text-2xl font-extrabold text-gray-900 mb-6 mt-4">Connect</h3>
+        <div class="flex flex-col space-y-5">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand-600 font-bold hover:text-brand-500 underline decoration-brand-300 hover:decoration-brand-500 underline-offset-4 transition-all w-fit">
+            LinkedIn: EcoLyf India
+            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand-600 font-bold hover:text-brand-500 underline decoration-brand-300 hover:decoration-brand-500 underline-offset-4 transition-all w-fit">
+            Instagram: @ecolyf_official
+            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

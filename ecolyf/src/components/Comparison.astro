@@ -1,41 +1,97 @@
 ---
+// Comparison.astro
 ---
-<section class="py-24 bg-gray-50 border-y border-gray-200">
+<section class="py-24 bg-brand-50/30 border-y border-brand-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
     <div class="text-center mb-16">
-      <h2 class="text-sm font-bold text-green-700 tracking-widest uppercase mb-2">The Material Advantage</h2>
+      <h2 class="text-sm font-extrabold text-brand-600 tracking-widest uppercase mb-2">The Material Advantage</h2>
       <h3 class="text-4xl font-extrabold text-gray-900">Why Switch to EcoLyf Bagasse?</h3>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+        Don't let outdated packaging ruin your brand reputation or incur government fines.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white p-8 rounded-xl border border-red-100 shadow-sm opacity-75">
-        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-100 pb-2">Styrofoam (EPS)</h4>
-        <ul class="space-y-3 text-sm text-gray-600">
-          <li class="flex items-center text-red-600"><span class="mr-2">✗</span> Takes 500+ years to degrade</li>
-          <li class="flex items-center text-red-600"><span class="mr-2">✗</span> Leaches toxins when heated</li>
-          <li class="flex items-center text-red-600"><span class="mr-2">✗</span> Facing global government bans</li>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      
+      {/* Competitor 1: Styrofoam - Crisp, readable, but visually flagged as dangerous */}
+      <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-6 border-b border-gray-100 pb-4">
+          <h4 class="text-xl font-bold text-gray-900">Styrofoam (EPS)</h4>
+          <span class="text-xs font-bold bg-red-100 text-red-700 px-2 py-1 rounded">Outdated</span>
+        </div>
+        <ul class="space-y-4 text-sm text-gray-600 font-medium">
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-red-500 mr-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Takes 500+ years to degrade in landfills
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-red-500 mr-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Leaches carcinogenic toxins when heated
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-red-500 mr-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Facing immediate global government bans
+          </li>
         </ul>
       </div>
 
-      <div class="bg-white p-8 rounded-xl border border-yellow-200 shadow-sm opacity-75">
-        <h4 class="text-xl font-bold text-gray-900 mb-4 border-b border-gray-100 pb-2">Standard Plastic</h4>
-        <ul class="space-y-3 text-sm text-gray-600">
-          <li class="flex items-center text-yellow-600"><span class="mr-2">⚠</span> Recyclable, but rarely recycled</li>
-          <li class="flex items-center text-yellow-600"><span class="mr-2">⚠</span> Massive carbon manufacturing footprint</li>
-          <li class="flex items-center text-yellow-600"><span class="mr-2">⚠</span> Brittle under extreme cold</li>
+      {/* Competitor 2: Plastic - Visually flagged as a liability */}
+      <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+        <div class="flex items-center justify-between mb-6 border-b border-gray-100 pb-4">
+          <h4 class="text-xl font-bold text-gray-900">Standard Plastic</h4>
+          <span class="text-xs font-bold bg-amber-100 text-amber-700 px-2 py-1 rounded">Liability</span>
+        </div>
+        <ul class="space-y-4 text-sm text-gray-600 font-medium">
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-amber-500 mr-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            Recyclable in theory, rarely in practice
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-amber-500 mr-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            Massive carbon manufacturing footprint
+          </li>
+          <li class="flex items-start">
+            <svg class="w-5 h-5 text-amber-500 mr-3 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            Brittle under extreme cold transport
+          </li>
         </ul>
       </div>
 
-      <div class="bg-green-900 p-8 rounded-xl border-2 border-green-500 shadow-xl transform md:-translate-y-4">
-        <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">INDUSTRY STANDARD</div>
-        <h4 class="text-xl font-bold text-white mb-4 border-b border-green-700 pb-2">EcoLyf Bagasse</h4>
-        <ul class="space-y-3 text-sm text-green-100 font-medium">
-          <li class="flex items-center"><span class="mr-2 text-green-400">✓</span> 100% Compostable in 90 Days</li>
-          <li class="flex items-center"><span class="mr-2 text-green-400">✓</span> Microwave Safe (up to 120°C)</li>
-          <li class="flex items-center"><span class="mr-2 text-green-400">✓</span> Zero toxins, PFAS-free options</li>
-          <li class="flex items-center"><span class="mr-2 text-green-400">✓</span> Premium tactile strength</li>
+      {/* The Hero: EcoLyf Bagasse - High energy, Electric Eco theme */}
+      <div class="bg-brand-600 p-8 rounded-2xl border-2 border-brand-400 shadow-2xl shadow-brand-600/30 transform md:-translate-y-4 relative z-10">
+        <div class="absolute top-0 right-0 bg-brand-400 text-brand-950 text-xs font-black px-4 py-1.5 rounded-bl-xl rounded-tr-xl uppercase tracking-wider shadow-sm">
+          The EcoLyf Standard
+        </div>
+        <h4 class="text-2xl font-extrabold text-white mb-6 border-b border-brand-500 pb-4 mt-2">EcoLyf Bagasse</h4>
+        <ul class="space-y-4 text-sm text-brand-50 font-semibold">
+          <li class="flex items-start">
+            <div class="bg-white rounded-full p-0.5 mr-3 shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            100% Compostable in 90 Days
+          </li>
+          <li class="flex items-start">
+            <div class="bg-white rounded-full p-0.5 mr-3 shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            Microwave Safe (up to 120°C)
+          </li>
+          <li class="flex items-start">
+            <div class="bg-white rounded-full p-0.5 mr-3 shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            Zero toxins, PFAS-free options available
+          </li>
+          <li class="flex items-start">
+            <div class="bg-white rounded-full p-0.5 mr-3 shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            Premium tactile strength & rigidity
+          </li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
