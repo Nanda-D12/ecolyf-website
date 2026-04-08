@@ -2,22 +2,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* The Whisper Backgrounds: Almost white, extremely subtle organic tint */
-  --color-brand-50: #f6fbf7;
-  --color-brand-100: #e8f5ec;
+  /* The Whisper Backgrounds: Ultra-clean whites with a microscopic forest tint */
+  --color-brand-50: #f3fbf3;
+  --color-brand-100: #e2f4e3;
   
-  /* The Muted Midtones: For borders, secondary backgrounds, and soft UI elements */
-  --color-brand-200: #cdecd9;
-  --color-brand-300: #a2dbbc;
-  --color-brand-400: #71c299;
+  /* The Muted Midtones: Borders, tags, and secondary structural elements */
+  --color-brand-200: #c4e7c6;
+  --color-brand-300: #96d399;
+  --color-brand-400: #62b766;
   
-  /* The Trust Elements: Buttons, CTAs, and primary active states. Calm, grounded, reliable. */
-  --color-brand-500: #4ca175; 
-  --color-brand-600: #38815a; 
+  /* The Trust Elements: Primary actions and buttons */
+  --color-brand-500: #389c3b; 
+  --color-brand-600: #207221; /* THE TARGET: Deep, legacy corporate anchor */
   
-  /* The Enterprise Typography: Near-black with a cold, green undertone for maximum contrast */
-  --color-brand-700: #2e6749;
-  --color-brand-800: #26533c;
-  --color-brand-900: #204432;
-  --color-brand-950: #11261c; 
+  /* The Enterprise Typography: Heavy, high-contrast text and dark-mode backgrounds */
+  --color-brand-700: #1a5e1c;
+  --color-brand-800: #164a17;
+  --color-brand-900: #123d14;
+  --color-brand-950: #0a220b; /* Absolute floor: Near-black with a rich forest undertone */
 }

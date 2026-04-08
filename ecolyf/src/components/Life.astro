@@ -14,59 +14,92 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-stretch relative">
-      <div class="absolute inset-0 top-1/2 left-0 right-0 h-1 bg-brand-100 hidden md:block"></div>
-
-      <div class="flex flex-col items-center p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
-        <div class="p-4 bg-white rounded-xl border border-brand-100 text-brand-600 mb-6 shadow-sm">
-          <img src="/images/placeholder-soil.jpg" alt="Compost Soil Placeholder" class="w-10 h-10 object-contain" />
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 items-stretch relative">
+      
+      <div class="group flex flex-col items-center p-6 lg:p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
+        <div class="w-24 h-24 bg-white rounded-2xl border border-brand-200 mb-6 shadow-sm overflow-hidden relative shrink-0">
+          <img src="/images/compost.webp" alt="Compost Soil" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         </div>
         <h4 class="text-xl font-black text-brand-950 mb-3 uppercase tracking-wide">Composting & Regeneration</h4>
         <p class="text-sm text-brand-800 leading-relaxed font-medium">
           Biodegradable bagasse containers decompose, returning valuable nutrients to the soil.
         </p>
+        
+        <div class="hidden md:block absolute -right-7 lg:-right-9 top-[72px] lg:top-[80px] -translate-y-1/2 z-20 pointer-events-none">
+          <svg class="w-10 h-10 text-brand-400 flow-arrow delay-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
-        <div class="p-4 bg-white rounded-xl border border-brand-100 text-brand-600 mb-6 shadow-sm">
-          <img src="/images/placeholder-crops.jpg" alt="Sugarcane Crops Placeholder" class="w-10 h-10 object-contain" />
+      <div class="group flex flex-col items-center p-6 lg:p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
+        <div class="w-24 h-24 bg-white rounded-2xl border border-brand-200 mb-6 shadow-sm overflow-hidden relative shrink-0">
+          <img src="/images/sugarcanes.webp" alt="Sugarcane Crops" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         </div>
         <h4 class="text-xl font-black text-brand-950 mb-3 uppercase tracking-wide">Sugarcane Cultivation</h4>
         <p class="text-sm text-brand-800 leading-relaxed font-medium">
-          New sugarcane crops grow vigorously, absorbing atmospheric CO2 and utilizing the regenerated soil.
+          New sugarcane crops grow vigorously, absorbing CO2 and utilizing the regenerated soil.
         </p>
+        
+        <div class="hidden md:block absolute -right-7 lg:-right-9 top-[72px] lg:top-[80px] -translate-y-1/2 z-20 pointer-events-none">
+          <svg class="w-10 h-10 text-brand-400 flow-arrow delay-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
-        <div class="p-4 bg-white rounded-xl border border-brand-100 text-brand-600 mb-6 shadow-sm">
-          <img src="/images/placeholder-mill.jpg" alt="Sugar Mill Placeholder" class="w-10 h-10 object-contain" />
+      <div class="group flex flex-col items-center p-6 lg:p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
+        <div class="w-24 h-24 bg-white rounded-2xl border border-brand-200 mb-6 shadow-sm overflow-hidden relative shrink-0">
+          <img src="/images/factory.webp" alt="Sugar Mill" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         </div>
         <h4 class="text-xl font-black text-brand-950 mb-3 uppercase tracking-wide">Industrial Processing</h4>
         <p class="text-sm text-brand-800 leading-relaxed font-medium">
-          Stalks are crushed for juice (processed into different sugar products), leaving fibrous bagasse residue.
+          Stalks are crushed for juice, leaving fibrous bagasse residue for our manufacturing.
         </p>
+        
+        <div class="hidden md:block absolute -right-7 lg:-right-9 top-[72px] lg:top-[80px] -translate-y-1/2 z-20 pointer-events-none">
+          <svg class="w-10 h-10 text-brand-400 flow-arrow delay-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
-        <div class="p-4 bg-white rounded-xl border border-brand-100 text-brand-600 mb-6 shadow-sm">
-          <img src="/images/placeholder-pulping.jpg" alt="Pulping Placeholder" class="w-10 h-10 object-contain" />
+      <div class="group flex flex-col items-center p-6 lg:p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
+        <div class="w-24 h-24 bg-white rounded-2xl border border-brand-200 mb-6 shadow-sm overflow-hidden relative shrink-0">
+          <img src="/images/sugarcane-pulp.webp" alt="Pulping" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         </div>
         <h4 class="text-xl font-black text-brand-950 mb-3 uppercase tracking-wide">Pulping & Purification</h4>
         <p class="text-sm text-brand-800 leading-relaxed font-medium">
-          The raw bagasse fiber is washed, purified, and transformed into a moldable, food-grade pulp.
+          The raw bagasse fiber is washed, purified, and transformed into food-grade pulp.
         </p>
+        
+        <div class="hidden md:block absolute -right-7 lg:-right-9 top-[72px] lg:top-[80px] -translate-y-1/2 z-20 pointer-events-none">
+          <svg class="w-10 h-10 text-brand-400 flow-arrow delay-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+        </div>
       </div>
 
-      <div class="flex flex-col items-center p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
-        <div class="p-4 bg-white rounded-xl border border-brand-100 text-brand-600 mb-6 shadow-sm">
-          <img src="/images/placeholder-molding.jpg" alt="Molding Placeholder" class="w-10 h-10 object-contain" />
+      <div class="group flex flex-col items-center p-6 lg:p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center relative z-10 hover:border-brand-300 hover:shadow-lg transition-all duration-300">
+        <div class="w-24 h-24 bg-white rounded-2xl border border-brand-200 mb-6 shadow-sm overflow-hidden relative shrink-0">
+          <img src="/images/bagasse.webp" alt="Container Molding" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         </div>
         <h4 class="text-xl font-black text-brand-950 mb-3 uppercase tracking-wide">Container Molding</h4>
         <p class="text-sm text-brand-800 leading-relaxed font-medium">
-          The pulp is pressed under high heat and pressure into sturdy, plastic-free tableware.
+          The pulp is pressed under high heat into sturdy, plastic-free tableware.
         </p>
       </div>
 
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes slideRightPulse {
+    /* Adjusted the distance from 6px to 8px to give the larger arrows more room to breathe */
+    0% { transform: translateX(0); opacity: 0.1; }
+    50% { transform: translateX(8px); opacity: 1; }
+    100% { transform: translateX(0); opacity: 0.1; }
+  }
+
+  .flow-arrow {
+    animation: slideRightPulse 2.5s infinite ease-in-out;
+  }
+
+  .delay-1 { animation-delay: 0s; }
+  .delay-2 { animation-delay: 0.4s; }
+  .delay-3 { animation-delay: 0.8s; }
+  .delay-4 { animation-delay: 1.2s; }
+</style>
