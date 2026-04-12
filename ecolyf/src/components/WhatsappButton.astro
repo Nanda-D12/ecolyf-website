@@ -2,15 +2,15 @@
 // src/components/WhatsAppButton.astro
 
 const phoneNumber = "918608503282"; 
-const message = "Hello EcoLyf team, I am interested in export pricing for bagasse tableware.";
-const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+const defaultMessage = "Hello EcoLyf team, I am interested in export pricing for bagasse tableware.";
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
 ---
 
-<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+<div class="fixed bottom-6 right-6 z-50">
   
   <div 
     id="wa-popup" 
-    class="mb-4 w-[320px] max-h-[80vh] bg-[#E5DDD5] rounded-2xl shadow-2xl overflow-hidden origin-bottom-right transition-all duration-300 scale-0 opacity-0 flex flex-col"
+    class="absolute bottom-20 right-0 mb-4 w-[320px] max-h-[80vh] bg-[#E5DDD5] rounded-2xl shadow-2xl overflow-hidden origin-bottom-right transition-all duration-300 scale-0 opacity-0 pointer-events-none flex flex-col"
     aria-hidden="true"
   >
     <div class="bg-[#128C7E] p-4 flex items-center justify-between shadow-md z-10 shrink-0">
@@ -42,16 +42,23 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mess
     </div>
 
     <div class="bg-[#F0F0F0] p-3 flex items-center gap-2 shrink-0">
-      <div class="bg-white rounded-full px-4 py-2.5 flex-grow shadow-sm border border-gray-200 min-w-0">
-        <p class="text-[13px] text-gray-500 truncate select-none">{message}</p>
-      </div>
+      <input 
+        type="text" 
+        id="wa-input" 
+        placeholder="Send a message..." 
+        autocomplete="off"
+        class="bg-white rounded-full px-4 py-2.5 flex-grow shadow-sm border border-gray-200 min-w-0 text-[13px] text-gray-700 focus:outline-none focus:border-[#128C7E] focus:ring-1 focus:ring-[#128C7E] transition-all pointer-events-auto"
+      />
       
       <a 
+        id="wa-send-btn"
         href={whatsappUrl} 
         target="_blank" 
         rel="noopener noreferrer"
-        class="w-10 h-10 bg-[#128C7E] rounded-full flex items-center justify-center text-white shadow-sm hover:bg-[#075E54] hover:scale-105 transition-all shrink-0"
-        aria-label={message}
+        data-phone={phoneNumber}
+        data-default-msg={defaultMessage}
+        class="w-10 h-10 bg-[#128C7E] rounded-full flex items-center justify-center text-white shadow-sm hover:bg-[#075E54] hover:scale-105 transition-all shrink-0 pointer-events-auto"
+        aria-label="Send message to WhatsApp"
       >
         <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
       </a>
@@ -61,7 +68,7 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mess
   <button 
     id="wa-trigger"
     aria-label="Open WhatsApp Chat"
-    class="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 relative group z-20"
+    class="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 relative group z-20 pointer-events-auto"
   >
     <div class="absolute -top-1 -right-1 flex h-5 w-5">
       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -79,27 +86,57 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mess
     const trigger = document.getElementById('wa-trigger');
     const popup = document.getElementById('wa-popup');
     const closeBtn = document.getElementById('wa-close');
+    const waInput = document.getElementById('wa-input') as HTMLInputElement;
+    const waSendBtn = document.getElementById('wa-send-btn') as HTMLAnchorElement;
 
     if (!trigger || !popup || !closeBtn) return;
 
+    // Toggle logic
     trigger.addEventListener('click', () => {
       const isClosed = popup.classList.contains('scale-0');
       if (isClosed) {
-        popup.classList.remove('scale-0', 'opacity-0');
-        popup.classList.add('scale-100', 'opacity-100');
+        popup.classList.remove('scale-0', 'opacity-0', 'pointer-events-none');
+        popup.classList.add('scale-100', 'opacity-100', 'pointer-events-auto');
         const badge = trigger.querySelector('.absolute.-top-1');
         if (badge) badge.classList.add('hidden');
+        
+        // Auto-focus the input field when opened on desktop
+        if (window.innerWidth > 768 && waInput) {
+          setTimeout(() => waInput.focus(), 300);
+        }
       } else {
-        popup.classList.remove('scale-100', 'opacity-100');
-        popup.classList.add('scale-0', 'opacity-0');
+        popup.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');
+        popup.classList.add('scale-0', 'opacity-0', 'pointer-events-none');
       }
     });
 
     closeBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      popup.classList.remove('scale-100', 'opacity-100');
-      popup.classList.add('scale-0', 'opacity-0');
+      popup.classList.remove('scale-100', 'opacity-100', 'pointer-events-auto');
+      popup.classList.add('scale-0', 'opacity-0', 'pointer-events-none');
     });
+
+    // THE UX FIX: Real-time payload binding
+    if (waInput && waSendBtn) {
+      // 1. Update the WhatsApp URL dynamically as the user types
+      waInput.addEventListener('input', (e) => {
+        const target = e.target as HTMLInputElement;
+        const phone = waSendBtn.getAttribute('data-phone');
+        const defaultMsg = waSendBtn.getAttribute('data-default-msg');
+        const customText = target.value.trim();
+        
+        const textToEncode = customText ? customText : defaultMsg;
+        waSendBtn.href = `https://wa.me/${phone}?text=${encodeURIComponent(textToEncode)}`;
+      });
+
+      // 2. Allow the user to press "Enter" to send the message
+      waInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          waSendBtn.click();
+        }
+      });
+    }
   }
 
   document.addEventListener('DOMContentLoaded', initWhatsAppWidget);
