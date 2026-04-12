@@ -3,23 +3,41 @@ import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import WhatsappButton from '../components/WhatsappButton.astro';
-const { title, description } = Astro.props;
+
+// Fallback values ensure the site never has "empty" metadata
+const { 
+  title = "Global Exporter & Supply Chain Manager", 
+  description = "Institutional-grade supply of 100% biodegradable bagasse tableware. Sustainable export operations at global scale." 
+} = Astro.props;
+
+// This helps Google identify the exact URL and avoids "duplicate content" penalties
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={canonicalURL} />
+    
     <link rel="icon" type="image/svg+xml" href="/ecolyf-icon.svg" />
-    <title>{title} | EcoLyf Bagasse Tableware</title>
+    
+    <title>{title} | EcoLyf International</title>
   </head>
-  <body class="bg-white text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+  
+  <body class="bg-white text-brand-950 font-sans antialiased flex flex-col min-h-screen">
     <Navbar />
+    
     <main class="flex-grow">
       <slot /> 
     </main>
+    
     <Footer />
+    
     <WhatsappButton />
   </body>
 </html>

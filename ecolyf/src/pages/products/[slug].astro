@@ -98,15 +98,44 @@ const { product } = Astro.props;
           <span class="w-6 h-px bg-brand-500 mr-2"></span>
           Supply Advantages
         </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {product.features.map(feature => (
-            <div class="flex items-center bg-brand-50/50 p-3.5 rounded-lg border border-brand-100 transition-colors hover:border-brand-300 hover:bg-brand-50">
-              <div class="w-5 h-5 rounded-full bg-white border border-brand-100 flex items-center justify-center mr-3 shadow-sm">
-                <svg class="w-2.5 h-2.5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="4"><path d="M5 13l4 4L19 7"></path></svg>
-              </div>
-              <span class="text-brand-950 font-bold text-xs tracking-tight">{feature}</span>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          
+          <div class="bg-brand-50/50 p-4 rounded-xl border border-brand-100 flex flex-col items-center text-center group hover:bg-white hover:border-brand-300 transition-all duration-300 hover:shadow-sm">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 shadow-sm border border-brand-100 group-hover:border-brand-200 transition-all duration-300">
+              <img src="/icons/lifecycle/biodegradable.png" alt="Compostable 90 Days" class="w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-300" />
             </div>
-          ))}
+            <span class="text-brand-950 font-bold text-[11px] uppercase tracking-tight">Compostable 90 Days</span>
+          </div>
+
+          <div class="bg-brand-50/50 p-4 rounded-xl border border-brand-100 flex flex-col items-center text-center group hover:bg-white hover:border-brand-300 transition-all duration-300 hover:shadow-sm">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 shadow-sm border border-brand-100 group-hover:border-brand-200 transition-all duration-300">
+              <img src="/icons/lifecycle/eco-friendly.png" alt="100% Eco Friendly" class="w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <span class="text-brand-950 font-bold text-[11px] uppercase tracking-tight">100% Eco Friendly</span>
+          </div>
+
+          <div class="bg-brand-50/50 p-4 rounded-xl border border-brand-100 flex flex-col items-center text-center group hover:bg-white hover:border-brand-300 transition-all duration-300 hover:shadow-sm">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 shadow-sm border border-brand-100 group-hover:border-brand-200 transition-all duration-300">
+              <img src="/icons/lifecycle/microwave-safe.png" alt="Microwave Safe" class="w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <span class="text-brand-950 font-bold text-[11px] uppercase tracking-tight">Microwave Safe</span>
+          </div>
+
+          <div class="bg-brand-50/50 p-4 rounded-xl border border-brand-100 flex flex-col items-center text-center group hover:bg-white hover:border-brand-300 transition-all duration-300 hover:shadow-sm">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 shadow-sm border border-brand-100 group-hover:border-brand-200 transition-all duration-300">
+              <img src="/icons/lifecycle/snowflake.png" alt="Freeze Safe" class="w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <span class="text-brand-950 font-bold text-[11px] uppercase tracking-tight">Freeze Safe</span>
+          </div>
+
+          <div class="bg-brand-50/50 p-4 rounded-xl border border-brand-100 flex flex-col items-center text-center group hover:bg-white hover:border-brand-300 transition-all duration-300 hover:shadow-sm sm:col-span-2 md:col-span-1">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 shadow-sm border border-brand-100 group-hover:border-brand-200 transition-all duration-300">
+              <img src="/icons/lifecycle/non-toxic.png" alt="Non-Toxic Certified" class="w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <span class="text-brand-950 font-bold text-[11px] uppercase tracking-tight">Non-Toxic Certified</span>
+          </div>
+
         </div>
       </div>
       
