@@ -1,0 +1,165 @@
+{
+    "Plates": {
+        "Round Plates": {
+            "Items": [
+                {
+                    "Name": "6 Inch Round Plate",
+                    "Diameter": "6\" (152mm)",
+                    "Depth": "0.5\" (13mm)",
+                    "Weight": "8-10g",
+                    "PiecesPerBag": 1000,
+                    "PiecesPerSleeve": 50,
+                    "Applications": "Appetizer, dessert, bread plate"
+                },
+                {
+                    "Name": "7 Inch Round Plate",
+                    "Diameter": "7\" (178mm)",
+                    "Depth": "0.6\" (15mm)",
+                    "Weight": "10-12g",
+                    "PiecesPerBag": 1000,
+                    "PiecesPerSleeve": 50,
+                    "Applications": "Salad, side dish, dessert plate"
+                },
+                {
+                    "Name": "9 Inch Round Plate",
+                    "Diameter": "9\" (229mm)",
+                    "Depth": "0.7\" (18mm)",
+                    "Weight": "14-16g",
+                    "PiecesPerBag": 500,
+                    "PiecesPerSleeve": 25,
+                    "Applications": "Standard lunch, light dinner plate"
+                },
+                {
+                    "Name": "10 Inch Round Plate",
+                    "Diameter": "10\" (254mm)",
+                    "Depth": "0.8\" (20mm)",
+                    "Weight": "18-20g",
+                    "PiecesPerBag": 500,
+                    "PiecesPerSleeve": 25,
+                    "Applications": "Full dinner, main course plate"
+                },
+                {
+                    "Name": "12 Inch Round Plate",
+                    "Diameter": "12\" (305mm)",
+                    "Depth": "1\" (25mm)",
+                    "Weight": "24-28g",
+                    "PiecesPerBag": 500,
+                    "PiecesPerSleeve": 25,
+                    "Applications": "Charger, serving, family-style, catering platter"
+                }
+            ],
+            "MOQ": 50000,
+            "LeadTime": "15-25 days",
+            "Attributes": [
+                "Food safe",
+                "Microwave safe",
+                "Oil & Leak resistant",
+                "Strong & Sturdy"
+            ],
+            "image": "/products/10-in-plate.webp"
+        }
+    },
+    "Bowls": {
+        "Soup Bowls": {
+            "Items": [
+                {
+                    "Name": "180ml Round Bowl",
+                    "Diameter": "4\" (100mm)",
+                    "Depth": "1.5\" (38mm)",
+                    "Volume": "180ml (6oz)",
+                    "Weight": "8-10g",
+                    "PiecesPerBag": 1000,
+                    "PiecesPerSleeve": 50,
+                    "Applications": "Small appetizer or side soups"
+                },
+                {
+                    "Name": "240ml Round Bowl",
+                    "Diameter": "4.5\" (115mm)",
+                    "Depth": "1.8\" (45mm)",
+                    "Volume": "240ml (8oz)",
+                    "Weight": "10-12g",
+                    "PiecesPerBag": 1000,
+                    "PiecesPerSleeve": 50,
+                    "Applications": "Standard soup cup size"
+                },
+                {
+                    "Name": "350ml Round Bowl",
+                    "Diameter": "5.5\" (140mm)",
+                    "Depth": "2\" (50mm)",
+                    "Volume": "350ml (12oz)",
+                    "Weight": "12-14g",
+                    "PiecesPerBag": 500,
+                    "PiecesPerSleeve": 25,
+                    "Applications": "Regular soup bowl (most popular)"
+                },
+                {
+                    "Name": "500ml Round Bowl",
+                    "Diameter": "6\" (152mm)",
+                    "Depth": "2.2\" (56mm)",
+                    "Volume": "500ml (16oz)",
+                    "Weight": "16-18g",
+                    "PiecesPerBag": 500,
+                    "PiecesPerSleeve": 25,
+                    "Applications": "Large soup bowl for hearty servings"
+                },
+                {
+                    "Name": "750ml Round Bowl",
+                    "Diameter": "7\" (178mm)",
+                    "Depth": "2.5\" (64mm)",
+                    "Volume": "750ml (25oz)",
+                    "Weight": "20-24g",
+                    "PiecesPerBag": 500,
+                    "PiecesPerSleeve": 25,
+                    "Applications": "Extra-large for stews & chowders"
+                },
+                {
+                    "Name": "950ml Round Bowl",
+                    "Diameter": "8\" (203mm)",
+                    "Depth": "3\" (76mm)",
+                    "Volume": "950ml (32oz)",
+                    "Weight": "26-30g",
+                    "PiecesPerBag": 500,
+                    "PiecesPerSleeve": 25,
+                    "Applications": "Family-size or sharing portions"
+                }
+            ],
+            "MOQ": 50000,
+            "LeadTime": "15-25 days",
+            "Attributes": [
+                "Soup Ready",
+                "Microwave safe",
+                "Oil & Leak resistant",
+                "Freezer Safe"
+            ],
+            "image": "/products/bowls-category.webp"
+        }
+    },
+    "Trays": {
+        "square Meal Tray": {
+            "item": "2, 3, 4, 5, 6 CP round square",
+            "Items": [
+                {
+                    "Name": "3 Compartment Meal Tray",
+                    "Diameter": "6\" (152mm)",
+                    "Depth": "0.5\" (13mm)",
+                    "Weight": "8-10g",
+                    "PiecesPerBag": 1000,
+                    "PiecesPerSleeve": 50,
+                    "Applications": "Appetizer, dessert, bread plate"
+                }
+            ],
+            "MOQ": 50000,
+            "LeadTime": "15-25 days",
+            "Heat Resistance": "Up to 200 F (95 C)",
+            "Cold Resistance": "Down to -20 F (29 C)",
+            "Attributes": [
+                "Food safe",
+                "Microwave safe",
+                "Oil & Grease resistance",
+                "Strong & Sturdy",
+                "Water Resistance"
+            ],
+            "image": "/products/6-cp-tray.webp"
+        }
+    }
+}
