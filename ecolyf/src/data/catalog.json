@@ -3,58 +3,86 @@
         "Round Plates": {
             "Items": [
                 {
+                    "ProductCode": "EL001",
                     "Name": "6 Inch Round Plate",
                     "Diameter": "6\" (152mm)",
                     "Depth": "0.5\" (13mm)",
                     "Weight": "8-10g",
-                    "PiecesPerBag": 1000,
-                    "PiecesPerSleeve": 50,
-                    "Applications": "Appetizer, dessert, bread plate"
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Serving snacks, Desserts, and Side dishes",
+                    "images": ["/images/products/10-in-plate.webp"]
                 },
                 {
+                    "ProductCode": "EL002",
                     "Name": "7 Inch Round Plate",
                     "Diameter": "7\" (178mm)",
                     "Depth": "0.6\" (15mm)",
                     "Weight": "10-12g",
-                    "PiecesPerBag": 1000,
-                    "PiecesPerSleeve": 50,
-                    "Applications": "Salad, side dish, dessert plate"
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Convenient for salads, starters, and snacks",
+                    "images": ["/images/products/10-in-plate.webp"]
                 },
                 {
+                    "ProductCode": "EL003",
                     "Name": "9 Inch Round Plate",
                     "Diameter": "9\" (229mm)",
                     "Depth": "0.7\" (18mm)",
                     "Weight": "14-16g",
-                    "PiecesPerBag": 500,
-                    "PiecesPerSleeve": 25,
-                    "Applications": "Standard lunch, light dinner plate"
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Perfect for rice, pasta, and balanced meals",
+                    "images": ["/images/products/10-in-plate.webp"]
                 },
                 {
+                    "ProductCode": "EL004",
                     "Name": "10 Inch Round Plate",
                     "Diameter": "10\" (254mm)",
                     "Depth": "0.8\" (20mm)",
                     "Weight": "18-20g",
-                    "PiecesPerBag": 500,
-                    "PiecesPerSleeve": 25,
-                    "Applications": "Full dinner, main course plate"
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Ideal for full-course meals and buffets",
+                    "images": ["/images/products/10-in-plate.webp"]
                 },
                 {
+                    "ProductCode": "EL005",
+                    "Name": "11 Inch Round Plate",
+                    "Diameter": "11\" (279mm)",
+                    "Depth": "0.9\" (23mm)",
+                    "Weight": "22-24g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Premium size for fine dining and restaurants",
+                    "images": ["/images/products/10-in-plate.webp"]
+                },
+                {
+                    "ProductCode": "EL006",
                     "Name": "12 Inch Round Plate",
                     "Diameter": "12\" (305mm)",
                     "Depth": "1\" (25mm)",
                     "Weight": "24-28g",
-                    "PiecesPerBag": 500,
-                    "PiecesPerSleeve": 25,
-                    "Applications": "Charger, serving, family-style, catering platter"
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Extra-large size for sharing platters and party servings",
+                    "images": ["/images/products/10-in-plate.webp"]
                 }
             ],
             "MOQ": 50000,
             "LeadTime": "15-25 days",
             "Attributes": [
-                "Food safe",
-                "Microwave safe",
-                "Oil & Leak resistant",
-                "Strong & Sturdy"
+                { "id": "biodegradable", "label": "100% Compostable" },
+                { "id": "microwave-safe", "label": "Microwave Safe" },
+                { "id": "snowflake", "label": "Freezer Safe" },
+                { "id": "non-toxic", "label": "PFAS-Free" },
+                { "id": "eco-friendly", "label": "Oil & Leak Resistant" }
             ],
             "image": "/products/10-in-plate.webp"
         }
@@ -63,103 +91,275 @@
         "Soup Bowls": {
             "Items": [
                 {
+                    "ProductCode": "EL015",
                     "Name": "180ml Round Bowl",
                     "Diameter": "4\" (100mm)",
                     "Depth": "1.5\" (38mm)",
                     "Volume": "180ml (6oz)",
-                    "Weight": "8-10g",
-                    "PiecesPerBag": 1000,
-                    "PiecesPerSleeve": 50,
-                    "Applications": "Small appetizer or side soups"
+                    "Weight": "6-7g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Perfect for serving dips, chutneys, and small portions",
+                    "images": ["/images/products/bowls-category.webp"]
                 },
                 {
+                    "ProductCode": "EL016",
                     "Name": "240ml Round Bowl",
                     "Diameter": "4.5\" (115mm)",
                     "Depth": "1.8\" (45mm)",
                     "Volume": "240ml (8oz)",
-                    "Weight": "10-12g",
-                    "PiecesPerBag": 1000,
-                    "PiecesPerSleeve": 50,
-                    "Applications": "Standard soup cup size"
+                    "Weight": "6-7g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Ideal for soups, salads, and medium servings",
+                    "images": ["/images/products/bowls-category.webp"]
                 },
                 {
+                    "ProductCode": "EL017",
                     "Name": "350ml Round Bowl",
                     "Diameter": "5.5\" (140mm)",
                     "Depth": "2\" (50mm)",
                     "Volume": "350ml (12oz)",
-                    "Weight": "12-14g",
-                    "PiecesPerBag": 500,
-                    "PiecesPerSleeve": 25,
-                    "Applications": "Regular soup bowl (most popular)"
+                    "Weight": "8-9g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Best for noodles, curries, and large portions",
+                    "images": ["/images/products/bowls-category.webp"]
                 },
                 {
+                    "ProductCode": "EL017-B",
                     "Name": "500ml Round Bowl",
                     "Diameter": "6\" (152mm)",
                     "Depth": "2.2\" (56mm)",
                     "Volume": "500ml (16oz)",
                     "Weight": "16-18g",
-                    "PiecesPerBag": 500,
-                    "PiecesPerSleeve": 25,
-                    "Applications": "Large soup bowl for hearty servings"
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Large soup bowl for hearty servings",
+                    "images": ["/images/products/bowls-category.webp"]
                 },
                 {
+                    "ProductCode": "EL017-C",
                     "Name": "750ml Round Bowl",
                     "Diameter": "7\" (178mm)",
                     "Depth": "2.5\" (64mm)",
                     "Volume": "750ml (25oz)",
                     "Weight": "20-24g",
-                    "PiecesPerBag": 500,
-                    "PiecesPerSleeve": 25,
-                    "Applications": "Extra-large for stews & chowders"
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Extra-large for stews & chowders",
+                    "images": ["/images/products/bowls-category.webp"]
                 },
                 {
+                    "ProductCode": "EL017-D",
                     "Name": "950ml Round Bowl",
                     "Diameter": "8\" (203mm)",
                     "Depth": "3\" (76mm)",
                     "Volume": "950ml (32oz)",
                     "Weight": "26-30g",
-                    "PiecesPerBag": 500,
-                    "PiecesPerSleeve": 25,
-                    "Applications": "Family-size or sharing portions"
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Family-size or sharing portions",
+                    "images": ["/images/products/bowls-category.webp"]
                 }
             ],
             "MOQ": 50000,
             "LeadTime": "15-25 days",
             "Attributes": [
-                "Soup Ready",
-                "Microwave safe",
-                "Oil & Leak resistant",
-                "Freezer Safe"
+                { "id": "biodegradable", "label": "100% Compostable" },
+                { "id": "microwave-safe", "label": "Microwave Safe" },
+                { "id": "eco-friendly", "label": "Soup & Liquid Ready" },
+                { "id": "snowflake", "label": "Freezer Safe" }
             ],
             "image": "/products/bowls-category.webp"
         }
     },
     "Trays": {
-        "square Meal Tray": {
-            "item": "2, 3, 4, 5, 6 CP round square",
+        "Round Meal Trays": {
             "Items": [
                 {
-                    "Name": "3 Compartment Meal Tray",
-                    "Diameter": "6\" (152mm)",
-                    "Depth": "0.5\" (13mm)",
-                    "Weight": "8-10g",
-                    "PiecesPerBag": 1000,
-                    "PiecesPerSleeve": 50,
-                    "Applications": "Appetizer, dessert, bread plate"
+                    "ProductCode": "EL007",
+                    "Name": "3 CP Round Tray",
+                    "Diameter": "10\" (254mm)",
+                    "Depth": "1\" (25mm)",
+                    "Weight": "20-22g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Perfect for combo meals with three portions",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                },
+                {
+                    "ProductCode": "EL008",
+                    "Name": "4 CP Round Tray",
+                    "Diameter": "10\" (254mm)",
+                    "Depth": "1\" (25mm)",
+                    "Weight": "22-25g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Great for balanced meals with multiple food groups",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                },
+                {
+                    "ProductCode": "EL009",
+                    "Name": "5 CP Round Tray",
+                    "Diameter": "12\" (305mm)",
+                    "Depth": "1.2\" (30mm)",
+                    "Weight": "28-32g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Designed for thali-style or full-course dining",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                },
+                {
+                    "ProductCode": "EL010",
+                    "Name": "6 CP Round Tray",
+                    "Diameter": "12\" (305mm)",
+                    "Depth": "1.2\" (30mm)",
+                    "Weight": "30-35g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Best for elaborate meals with diverse dishes",
+                    "images": ["/images/products/6-cp-tray.webp"]
                 }
             ],
             "MOQ": 50000,
             "LeadTime": "15-25 days",
-            "Heat Resistance": "Up to 200 F (95 C)",
-            "Cold Resistance": "Down to -20 F (29 C)",
+            "HeatResistance": "Up to 200°F (95°C)",
+            "ColdResistance": "Down to -20°F (-29°C)",
             "Attributes": [
-                "Food safe",
-                "Microwave safe",
-                "Oil & Grease resistance",
-                "Strong & Sturdy",
-                "Water Resistance"
+                { "id": "biodegradable", "label": "100% Compostable" },
+                { "id": "non-toxic", "label": "Rigid Separation" },
+                { "id": "microwave-safe", "label": "High Heat Resistance" },
+                { "id": "eco-friendly", "label": "Oil & Grease Proof" }
             ],
             "image": "/products/6-cp-tray.webp"
+        },
+        "Square Meal Trays": {
+            "Items": [
+                {
+                    "ProductCode": "EL011",
+                    "Name": "3 CP Square Tray",
+                    "Diameter": "10\" (254mm)",
+                    "Depth": "1\" (25mm)",
+                    "Weight": "20-22g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Perfect for combo meals with three portions",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                },
+                {
+                    "ProductCode": "EL012",
+                    "Name": "4 CP Square Tray",
+                    "Diameter": "10\" (254mm)",
+                    "Depth": "1\" (25mm)",
+                    "Weight": "22-25g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Great for balanced meals with multiple food groups",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                },
+                {
+                    "ProductCode": "EL013",
+                    "Name": "5 CP Square Tray",
+                    "Diameter": "12\" (305mm)",
+                    "Depth": "1.2\" (30mm)",
+                    "Weight": "28-32g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Designed for thali-style or full-course dining",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                },
+                {
+                    "ProductCode": "EL014",
+                    "Name": "6 CP Square Tray",
+                    "Diameter": "12\" (305mm)",
+                    "Depth": "1.2\" (30mm)",
+                    "Weight": "30-35g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Best for elaborate meals with diverse dishes",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                }
+            ],
+            "MOQ": 50000,
+            "LeadTime": "15-25 days",
+            "HeatResistance": "Up to 200°F (95°C)",
+            "ColdResistance": "Down to -20°F (-29°C)",
+            "Attributes": [
+                { "id": "biodegradable", "label": "100% Compostable" },
+                { "id": "non-toxic", "label": "Rigid Separation" },
+                { "id": "microwave-safe", "label": "High Heat Resistance" },
+                { "id": "eco-friendly", "label": "Oil & Grease Proof" }
+            ],
+            "image": "/products/6-cp-tray.webp"
+        }
+    },
+    "Containers": {
+        "Clamshells": {
+            "Items": [
+                {
+                    "ProductCode": "EL018",
+                    "Name": "6x6 Burger Clamshell",
+                    "Diameter": "6\" (152mm)",
+                    "Depth": "3\" (76mm)",
+                    "Dimensions": "6\" x 6\" x 3\" (152x152x76mm)",
+                    "Weight": "18-22g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Perfect for burgers, sandwiches, and takeaway snacks",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                },
+                {
+                    "ProductCode": "EL019",
+                    "Name": "8x8 Meal Clamshell",
+                    "Diameter": "8\" (203mm)",
+                    "Depth": "3\" (76mm)",
+                    "Dimensions": "8\" x 8\" x 3\" (203x203x76mm)",
+                    "Weight": "28-32g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Popular choice for combo meals, noodles, pastas, or biryani",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                },
+                {
+                    "ProductCode": "EL020",
+                    "Name": "9x9 Meal Clamshell",
+                    "Diameter": "9\" (229mm)",
+                    "Depth": "3\" (76mm)",
+                    "Dimensions": "9\" x 9\" x 3\" (229x229x76mm)",
+                    "Weight": "38-42g",
+                    "PiecesPerPack": 50,
+                    "PacksPerCarton": 10,
+                    "PiecesPerCarton": 500,
+                    "Applications": "Best for large meals, rice dishes, and full-course servings",
+                    "images": ["/images/products/6-cp-tray.webp"]
+                }
+            ],
+            "MOQ": 50000,
+            "LeadTime": "15-25 days",
+            "Attributes": [
+                { "id": "biodegradable", "label": "100% Compostable" },
+                { "id": "microwave-safe", "label": "Microwave Safe" },
+                { "id": "non-toxic", "label": "Secure Lock Closure" },
+                { "id": "eco-friendly", "label": "Heat Retentive" }
+            ],
+            "image": "/products/10-in-plate.webp"
         }
     }
 }

@@ -31,6 +31,15 @@ const formatSpecKey = (key) => {
   const result = key.replace(/([A-Z])/g, ' $1').trim();
   return result.charAt(0).toUpperCase() + result.slice(1);
 };
+
+// Helper for dynamic size pills
+const getPillLabel = (item) => {
+  if (item.Volume) return item.Volume.split(' ')[0];
+  if (item.Name.includes('CP')) return item.Name.split(' ').slice(0, 2).join(' ');
+  if (item.Name.includes('x')) return item.Name.split(' ')[0];
+  if (item.Diameter) return item.Diameter.split(' ')[0];
+  return item.Name.split(' ')[0];
+};
 ---
 
 <MainLayout title={`${name} | EcoLyf Master Catalog`} description={`Technical specifications and supply details for ${name}.`}>
@@ -55,10 +64,24 @@ const formatSpecKey = (key) => {
         
         <div class="flex flex-wrap gap-3 mb-8">
           {data.Attributes && data.Attributes.map(attr => (
-            <div class="bg-brand-50/50 px-4 py-2 rounded-lg border border-brand-100 flex items-center">
-              <div class="w-1.5 h-1.5 rounded-full bg-brand-500 mr-2 shrink-0"></div>
-              <span class="text-brand-950 font-bold text-xs uppercase tracking-tight">{attr}</span>
+            <div class="bg-brand-50/50 px-3 py-2 rounded-lg border border-brand-100 flex items-center shadow-sm">
+              <img 
+                src={`/icons/lifecycle/${attr.id}.png`} 
+                alt={attr.label}
+                class="w-4 h-4 object-contain mr-2"
+                onerror="this.onerror=null; this.src='/images/placeholder.webp';"
+              />
+              <span class="text-brand-950 font-bold text-[10px] uppercase tracking-tight">{attr.label}</span>
             </div>
+          ))}
+        </div>
+
+        <div class="flex flex-wrap gap-1.5 mb-8">
+          <span class="text-[10px] font-bold text-brand-500 uppercase tracking-widest mr-2 flex items-center">Sizes:</span>
+          {data.Items.map(item => (
+            <span class="bg-brand-100/60 border border-brand-200 text-brand-800 text-[10px] font-extrabold px-2 py-0.5 rounded shadow-sm tracking-tight">
+              {getPillLabel(item)}
+            </span>
           ))}
         </div>
 
@@ -81,7 +104,7 @@ const formatSpecKey = (key) => {
             src={data.image || `/images/categories/${name.toLowerCase().replace(/\s+/g, '-')}.webp`} 
             alt={name} 
             class="w-full h-full object-contain drop-shadow-xl"
-            onerror="this.src='/images/placeholder.webp'"
+            onerror="this.onerror=null; this.src='/images/placeholder.webp';"
           />
         </div>
       </div>
@@ -99,26 +122,32 @@ const formatSpecKey = (key) => {
 
       <div class="space-y-12">
         {data.Items.map((item, index) => (
-          <div class="bg-white rounded-2xl border border-brand-100 shadow-sm overflow-hidden flex flex-col md:flex-row group transition-all hover:shadow-md">
+          <div class="bg-white rounded-2xl border border-brand-100 shadow-sm overflow-hidden flex flex-col md:flex-row group transition-all hover:shadow-md" id={item.ProductCode}>
             
             <div class="md:w-1/3 bg-brand-50 p-6 flex flex-col justify-between border-r border-brand-100 relative">
-              <div class="absolute top-4 left-4 bg-white text-brand-800 text-[9px] font-black px-2 py-1 rounded border border-brand-200 uppercase tracking-widest shadow-sm">
-                SKU {index + 1}
+              <div class="absolute top-4 left-4 bg-white text-brand-800 text-[9px] font-black px-2 py-1 rounded border border-brand-200 uppercase tracking-widest shadow-sm flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                {item.ProductCode || `SKU ${index + 1}`}
               </div>
               
-              <div class="aspect-square flex items-center justify-center mb-4">
+              <div class="aspect-square flex items-center justify-center mb-4 mt-6">
                 <img 
-                  src={item.image || `/images/products/${item.Name.toLowerCase().replace(/\s+/g, '-')}.webp`} 
+                  src={item.images && item.images.length > 0 ? item.images[0] : `/images/placeholder.webp`} 
                   alt={item.Name} 
                   class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
-                  onerror="this.src='/images/placeholder.webp'"
+                  onerror="this.onerror=null; this.src='/images/placeholder.webp';"
                 />
               </div>
 
               <div class="grid grid-cols-3 gap-2">
-                <div class="aspect-square bg-white rounded border border-brand-200 opacity-100"></div>
-                <div class="aspect-square bg-brand-100 rounded border border-brand-100 opacity-50"></div>
-                <div class="aspect-square bg-brand-100 rounded border border-brand-100 opacity-50"></div>
+                {item.images && item.images.slice(0, 3).map((img, imgIndex) => (
+                  <div class={`aspect-square rounded border overflow-hidden ${imgIndex === 0 ? 'border-brand-400 bg-white opacity-100 shadow-sm' : 'border-brand-100 bg-brand-50 opacity-60'}`}>
+                     <img src={img} alt="Thumbnail" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/images/placeholder.webp';" />
+                  </div>
+                ))}
+                {(!item.images || item.images.length < 3) && Array.from({ length: 3 - (item.images ? item.images.length : 0) }).map(() => (
+                  <div class="aspect-square bg-brand-100/50 rounded border border-brand-100 opacity-40"></div>
+                ))}
               </div>
             </div>
 
@@ -128,7 +157,7 @@ const formatSpecKey = (key) => {
               <div class="border border-brand-100 rounded-xl overflow-hidden">
                 <table class="w-full text-left border-collapse text-sm">
                   <tbody>
-                    {Object.entries(item).filter(([key]) => key !== 'Name' && key !== 'image').map(([key, value], i) => (
+                    {Object.entries(item).filter(([key]) => !['Name', 'images', 'image', 'ProductCode'].includes(key)).map(([key, value], i) => (
                       <tr class={`transition-colors hover:bg-brand-50/80 ${i % 2 === 0 ? 'bg-brand-50/30' : 'bg-white'}`}>
                         <td class="py-3 px-4 border-b border-brand-50 font-black text-brand-900 w-1/3">
                           {formatSpecKey(key)}

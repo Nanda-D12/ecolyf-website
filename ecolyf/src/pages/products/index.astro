@@ -10,44 +10,85 @@ Object.entries(catalogData).forEach(([categoryName, categoryFamilies]) => {
     productFamilies.push({
       category: categoryName,
       name: familyName,
-      // Create a URL-safe slug (e.g., "Round Plates" -> "round-plates")
       slug: familyName.toLowerCase().replace(/\s+/g, '-'),
       data: familyData
     });
   });
 });
+
+// 2. SMART PILL EXTRACTOR: Dynamically determines if it should show "6"", "180ml", "3 CP", or "6x6"
+const getPillLabel = (item) => {
+  if (item.Volume) return item.Volume.split(' ')[0]; // e.g., "180ml"
+  if (item.Name.includes('CP')) return item.Name.split(' ').slice(0, 2).join(' '); // e.g., "3 CP"
+  if (item.Name.includes('x')) return item.Name.split(' ')[0]; // e.g., "6x6"
+  if (item.Diameter) return item.Diameter.split(' ')[0]; // e.g., "6""
+  return item.Name.split(' ')[0]; // Fallback
+};
 ---
 
 <MainLayout 
   title="Enterprise Catalog | EcoLyf Exports" 
   description="Technical specifications for our 100% biodegradable bagasse product families."
 >
-  <div class="relative min-h-[350px] flex items-center overflow-hidden py-16 px-4 border-b border-brand-900 bg-brand-950">
+  <div class="relative min-h-[350px] flex items-center overflow-hidden py-16 px-4 border-b border-brand-100 bg-brand-950">
     <img 
       src="/mobile-hero.webp" 
       alt="EcoLyf Production Lines" 
-      class="absolute inset-0 w-full h-full object-cover mix-blend-overlay" 
+      class="absolute inset-0 w-full h-full object-cover" 
     />
-    <div class="absolute inset-0 bg-gradient-to-r from-brand-500/4 via-brand-500/2 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-950/80 via-brand-950/40 to-transparent sm:w-3/4 md:w-2/3"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto w-full">
       <div class="max-w-2xl">
-        <h2 class="text-brand-400 font-extrabold tracking-widest uppercase text-[10px] mb-3">Institutional Supply</h2>
-        <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white drop-shadow-md">
-          Master <span class="text-brand-500">Catalog</span>
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-4 text-white drop-shadow-lg">
+          All Products
         </h1>
-        <p class="text-base text-brand-200 max-w-lg leading-relaxed font-medium drop-shadow">
+        <p class="text-base text-brand-100 max-w-lg leading-relaxed font-medium drop-shadow-md">
           Engineered for global distribution. Select a product family below to view complete SKU variations, technical specs, and shipping configurations.
         </p>
       </div>
     </div>
   </div>
 
-  <section class="py-20 px-4 max-w-7xl mx-auto min-h-[60vh]">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="bg-white border-b border-brand-100 sticky top-20 z-40 py-3 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 md:pb-0" id="category-filters">
+        
+        <button data-filter="all" class="filter-btn active-filter">
+          All Families
+        </button>
+        
+        <button data-filter="plates" class="filter-btn group">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><circle cx="12" cy="12" r="9"></circle></svg>
+          Plates
+        </button>
+        
+        <button data-filter="trays" class="filter-btn group">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><rect x="3" y="7" width="18" height="10" rx="2"></rect></svg>
+          Trays
+        </button>
+        
+        <button data-filter="bowls" class="filter-btn group">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M4 9h16c0 4.418-3.582 8-8 8s-8-3.582-8-8z"></path></svg>
+          Bowls
+        </button>
+
+        <button data-filter="containers" class="filter-btn group">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+          </svg>
+          Containers
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <section class="py-12 px-4 max-w-7xl mx-auto min-h-[60vh]">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
       
       {productFamilies.map(family => (
-        <a href={`/products/${family.slug}`} class="group block h-full">
+        <a href={`/products/${family.slug}`} class="group block h-full family-card" data-category={family.category.toLowerCase()}>
           <div class="bg-white rounded-3xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-full flex flex-col relative">
             
             <div class="absolute top-4 left-4 z-20">
@@ -68,18 +109,33 @@ Object.entries(catalogData).forEach(([categoryName, categoryFamilies]) => {
             <div class="p-8 flex flex-col flex-grow border-t border-brand-50">
               <h3 class="text-2xl font-black text-brand-950 mb-2 tracking-tight">{family.name}</h3>
               
-              <div class="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-6 pb-4 border-b border-brand-50 flex gap-4">
+              <div class="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-3 flex gap-4">
                 <span>{family.data.Items.length} Sizes Available</span>
               </div>
 
-              <ul class="space-y-3 mb-8 flex-grow">
-                {family.data.Attributes.slice(0, 3).map(attr => (
-                  <li class="flex items-center text-sm font-bold text-brand-800">
-                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500 mr-3 shrink-0"></div>
-                    {attr}
-                  </li>
+              <div class="flex flex-wrap gap-1.5 mb-6 pb-5 border-b border-brand-50">
+                {family.data.Items.map(item => (
+                  <span class="bg-brand-100/60 border border-brand-200 text-brand-800 text-[10px] font-extrabold px-2 py-0.5 rounded shadow-sm tracking-tight">
+                    {getPillLabel(item)}
+                  </span>
                 ))}
-              </ul>
+              </div>
+
+              <div class="grid grid-cols-4 gap-2 mb-8 flex-grow content-start">
+                {family.data.Attributes.slice(0, 4).map(attr => (
+                  <div class="bg-brand-50/70 rounded-xl p-2 flex flex-col items-center justify-center aspect-square group/tile hover:bg-brand-100 transition-colors duration-300">
+                    <img 
+                      src={`/icons/lifecycle/${attr.id}.png`} 
+                      alt={attr.label}
+                      class="w-6 h-6 sm:w-8 sm:h-8 object-contain mb-1.5 group-hover/tile:scale-110 transition-transform duration-300"
+                      onerror="this.onerror=null; this.src='/images/placeholder.webp';"
+                    />
+                    <span class="text-[8px] sm:text-[9px] font-black text-brand-950 leading-tight uppercase tracking-tight text-center line-clamp-2">
+                      {attr.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
 
               <div class="flex items-center justify-between pt-4 border-t border-brand-50">
                 <div>
@@ -99,3 +155,67 @@ Object.entries(catalogData).forEach(([categoryName, categoryFamilies]) => {
     </div>
   </section>
 </MainLayout>
+
+<style>
+  @reference "../../styles/global.css"; 
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .filter-btn {
+    @apply bg-white border border-brand-200 px-4 py-2 rounded text-[11px] font-bold text-brand-800 transition-all duration-200 flex items-center cursor-pointer uppercase tracking-wider shadow-sm whitespace-nowrap;
+  }
+  
+  .filter-btn:hover:not(.active-filter) {
+    @apply border-brand-400 text-brand-700 bg-brand-50;
+  }
+  
+  .active-filter {
+    @apply bg-brand-600 border-brand-600 text-white shadow-inner pointer-events-none;
+  }
+</style>
+
+<script>
+  function initProcurementFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const familyCards = document.querySelectorAll('.family-card');
+
+    if (!filterBtns.length || !familyCards.length) return;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        
+        // 1. UI Update
+        filterBtns.forEach(b => b.classList.remove('active-filter'));
+        btn.classList.add('active-filter');
+
+        // 2. Logic: Get the target category
+        const targetCategory = btn.getAttribute('data-filter');
+
+        // 3. Execution: Evaluate all family cards
+        familyCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          
+          if (targetCategory === 'all' || targetCategory === cardCategory) {
+            (card as HTMLElement).style.display = 'block';
+            void (card as HTMLElement).offsetWidth; 
+            card.classList.remove('opacity-0', 'scale-95');
+            card.classList.add('opacity-100', 'scale-100');
+          } else {
+            (card as HTMLElement).style.display = 'none';
+            card.classList.remove('opacity-100', 'scale-100');
+            card.classList.add('opacity-0', 'scale-95');
+          }
+        });
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initProcurementFilters);
+  document.addEventListener('astro:page-load', initProcurementFilters);
+</script>
