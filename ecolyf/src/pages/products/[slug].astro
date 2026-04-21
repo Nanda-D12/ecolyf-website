@@ -40,40 +40,78 @@ const getPillLabel = (item) => {
   if (item.Diameter) return item.Diameter.split(' ')[0];
   return item.Name.split(' ')[0];
 };
+
+// Define which keys belong to which table for dynamic routing
+const technicalKeys = ['Diameter', 'Depth', 'Dimensions', 'Volume', 'Weight', 'HeatResistance', 'ColdResistance'];
+const packagingKeys = ['PiecesPerPack', 'PacksPerCarton', 'PiecesPerCarton'];
 ---
 
 <MainLayout title={`${name} | EcoLyf Master Catalog`} description={`Technical specifications and supply details for ${name}.`}>
   
-  <div class="bg-brand-50 border-b border-brand-100">
-    <div class="max-w-7xl mx-auto px-4 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-500">
-      <a href="/" class="hover:text-brand-700 transition-colors">Home</a> <span class="mx-2 text-brand-300">/</span> 
-      <a href="/products" class="hover:text-brand-700 transition-colors">Products</a> <span class="mx-2 text-brand-300">/</span> 
-      <a href="#" class="hover:text-brand-700 transition-colors">{category}</a> <span class="mx-2 text-brand-300">/</span> 
-      <span class="text-brand-950">{name}</span>
+  <div class="bg-brand-50 border-b border-brand-100 sticky top-20 z-30 shadow-sm backdrop-blur-md bg-opacity-95">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      
+      <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-500 flex items-center flex-wrap gap-2">
+        <a href="/" class="hover:text-brand-700 transition-colors hidden sm:inline-block">Home</a> 
+        <span class="text-brand-300 hidden sm:inline-block">/</span> 
+        <a href="/products" class="hover:text-brand-700 transition-colors">Products</a> 
+        <span class="text-brand-300">/</span> 
+        <a href="/products" class="hover:text-brand-700 transition-colors">{category}</a> 
+        <span class="text-brand-300">/</span> 
+        <span class="text-brand-950">{name}</span>
+      </div>
+
+      <button id="open-directory" class="flex items-center gap-2 bg-white border border-gray-200 text-brand-800 px-3 py-1.5 rounded shadow-sm hover:bg-brand-600 hover:text-white hover:border-brand-600 transition-all text-[10px] font-black uppercase tracking-widest group">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <span class="hidden sm:inline-block">Explore Products</span>
+        <span class="sm:hidden">Explore</span>
+      </button>
+
     </div>
   </div>
 
-  <div class="max-w-7xl mx-auto py-12 px-4 border-b border-brand-100">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <div class="max-w-7xl mx-auto py-12 px-4 space-y-16">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-gray-200 pb-12">
       
-      <div class="lg:col-span-7">
+      <div class="lg:col-span-7 order-2 lg:order-1">
         <span class="bg-brand-50 text-brand-800 text-[9px] font-bold px-3 py-1 rounded border border-brand-200 uppercase tracking-widest inline-block mb-4">
           Product Family: {category}
         </span>
         <h1 class="text-4xl md:text-5xl font-black text-brand-950 mb-6 tracking-tight leading-tight">{name}</h1>
         
-        <div class="flex flex-wrap gap-3 mb-8">
-          {data.Attributes && data.Attributes.map(attr => (
-            <div class="bg-brand-50/50 px-3 py-2 rounded-lg border border-brand-100 flex items-center shadow-sm">
+        <div class="grid grid-cols-4 gap-2 mb-8 content-start max-w-sm">
+          {data.Attributes && data.Attributes.slice(0, 4).map(attr => (
+            <div class="bg-brand-50/70 rounded-xl p-2 flex flex-col items-center justify-center aspect-square group/tile hover:bg-brand-100 transition-colors duration-300">
               <img 
                 src={`/icons/lifecycle/${attr.id}.png`} 
                 alt={attr.label}
-                class="w-4 h-4 object-contain mr-2"
+                class="w-6 h-6 sm:w-8 sm:h-8 object-contain mb-1.5 group-hover/tile:scale-110 transition-transform duration-300"
                 onerror="this.onerror=null; this.src='/images/placeholder.webp';"
               />
-              <span class="text-brand-950 font-bold text-[10px] uppercase tracking-tight">{attr.label}</span>
+              <span class="text-[8px] sm:text-[9px] font-black text-brand-950 leading-tight uppercase tracking-tight text-center line-clamp-2">
+                {attr.label}
+              </span>
             </div>
           ))}
+        </div>
+
+        <div class="mb-8">
+          <span class="text-[10px] font-bold text-brand-500 uppercase tracking-widest block mb-3">Global Certifications</span>
+          <div class="flex flex-wrap gap-3">
+            {[1, 2, 3, 4].map(i => (
+              <div class="w-12 h-12 bg-white border border-gray-200 rounded-md shadow-sm flex items-center justify-center p-2 hover:shadow transition-shadow">
+                <img 
+                  src={`/images/certifications/placeholder-${i}.webp`} 
+                  alt="Certification" 
+                  class="w-full h-full object-contain grayscale opacity-50"
+                  onerror="this.onerror=null; this.src='/images/placeholder.webp';"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div class="flex flex-wrap gap-1.5 mb-8">
@@ -95,37 +133,39 @@ const getPillLabel = (item) => {
         </div>
       </div>
 
-      <div class="lg:col-span-5">
-        <div class="bg-brand-50 rounded-2xl border border-brand-100 p-8 aspect-[4/3] flex items-center justify-center relative overflow-hidden shadow-inner">
+      <div class="lg:col-span-5 order-1 lg:order-2">
+        <div class="bg-brand-50 rounded-2xl border border-brand-100 aspect-square flex items-center justify-center relative overflow-hidden shadow-inner">
           <div class="absolute top-4 right-4 bg-white text-brand-600 text-[9px] font-bold px-3 py-1 rounded-full border border-brand-200 uppercase tracking-widest shadow-sm z-10">
             {data.Items.length} Sizes
           </div>
           <img 
             src={data.image || `/images/categories/${name.toLowerCase().replace(/\s+/g, '-')}.webp`} 
             alt={name} 
-            class="w-full h-full object-contain drop-shadow-xl"
+            class="w-full h-full object-cover"
             onerror="this.onerror=null; this.src='/images/placeholder.webp';"
           />
         </div>
       </div>
-
     </div>
-  </div>
 
-  <div class="bg-gray-50/50 py-16 border-b border-brand-100">
-    <div class="max-w-7xl mx-auto px-4">
-      
-      <div class="mb-10 flex items-center justify-between">
+    <div>
+      <div class="mb-8 flex items-center justify-between">
         <h2 class="text-2xl font-black text-brand-950 tracking-tight">Available Specifications</h2>
-        <span class="text-xs font-bold text-brand-500 uppercase tracking-widest">Lead Time: {data.LeadTime || "15-25 Days"}</span>
+        <span class="text-[10px] font-bold text-brand-500 uppercase tracking-widest bg-brand-50 px-3 py-1.5 rounded border border-brand-100">
+          Lead Time: {data.LeadTime || "15-25 Days"}
+        </span>
       </div>
 
-      <div class="space-y-12">
-        {data.Items.map((item, index) => (
-          <div class="bg-white rounded-2xl border border-brand-100 shadow-sm overflow-hidden flex flex-col md:flex-row group transition-all hover:shadow-md" id={item.ProductCode}>
+      <div class="space-y-10">
+        {data.Items.map((item, index) => {
+          const techEntries = Object.entries(item).filter(([k]) => technicalKeys.includes(k));
+          const packEntries = Object.entries(item).filter(([k]) => packagingKeys.includes(k));
+
+          return (
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col md:flex-row group transition-all hover:shadow-md" id={item.ProductCode}>
             
-            <div class="md:w-1/3 bg-brand-50 p-6 flex flex-col justify-between border-r border-brand-100 relative">
-              <div class="absolute top-4 left-4 bg-white text-brand-800 text-[9px] font-black px-2 py-1 rounded border border-brand-200 uppercase tracking-widest shadow-sm flex items-center gap-1.5">
+            <div class="md:w-1/3 bg-brand-50 p-6 flex flex-col justify-between border-r border-gray-200 relative sku-carousel" data-images={JSON.stringify(item.images || [])}>
+              <div class="absolute top-4 left-4 bg-white text-brand-800 text-[9px] font-black px-2 py-1 rounded border border-gray-200 uppercase tracking-widest shadow-sm flex items-center gap-1.5">
                 <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
                 {item.ProductCode || `SKU ${index + 1}`}
               </div>
@@ -134,49 +174,237 @@ const getPillLabel = (item) => {
                 <img 
                   src={item.images && item.images.length > 0 ? item.images[0] : `/images/placeholder.webp`} 
                   alt={item.Name} 
-                  class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
+                  class="main-display w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
                   onerror="this.onerror=null; this.src='/images/placeholder.webp';"
                 />
               </div>
 
               <div class="grid grid-cols-3 gap-2">
-                {item.images && item.images.slice(0, 3).map((img, imgIndex) => (
-                  <div class={`aspect-square rounded border overflow-hidden ${imgIndex === 0 ? 'border-brand-400 bg-white opacity-100 shadow-sm' : 'border-brand-100 bg-brand-50 opacity-60'}`}>
+                {item.images && item.images.map((img, imgIndex) => (
+                  <button type="button" class={`thumb-wrapper aspect-square rounded border overflow-hidden transition-all ${imgIndex === 0 ? 'border-brand-400 bg-white opacity-100 shadow-sm ring-2 ring-brand-200' : 'border-gray-200 bg-brand-50 opacity-60 hover:opacity-100 cursor-pointer'}`}>
                      <img src={img} alt="Thumbnail" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/images/placeholder.webp';" />
-                  </div>
+                  </button>
                 ))}
                 {(!item.images || item.images.length < 3) && Array.from({ length: 3 - (item.images ? item.images.length : 0) }).map(() => (
-                  <div class="aspect-square bg-brand-100/50 rounded border border-brand-100 opacity-40"></div>
+                  <div class="aspect-square bg-brand-100/50 rounded border border-gray-200 opacity-40"></div>
                 ))}
               </div>
             </div>
 
-            <div class="md:w-2/3 p-6 md:p-8 flex flex-col justify-center">
-              <h3 class="text-xl font-black text-brand-950 mb-6">{item.Name}</h3>
+            <div class="md:w-2/3 p-6 md:p-8 flex flex-col justify-start">
+              <h3 class="text-2xl md:text-3xl font-black text-brand-950 mb-8 tracking-tight">{item.Name}</h3>
               
-              <div class="border border-brand-100 rounded-xl overflow-hidden">
-                <table class="w-full text-left border-collapse text-sm">
-                  <tbody>
-                    {Object.entries(item).filter(([key]) => !['Name', 'images', 'image', 'ProductCode'].includes(key)).map(([key, value], i) => (
-                      <tr class={`transition-colors hover:bg-brand-50/80 ${i % 2 === 0 ? 'bg-brand-50/30' : 'bg-white'}`}>
-                        <td class="py-3 px-4 border-b border-brand-50 font-black text-brand-900 w-1/3">
-                          {formatSpecKey(key)}
-                        </td>
-                        <td class="py-3 px-4 border-b border-brand-50 text-brand-800 font-medium">
-                          {value}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              {techEntries.length > 0 && (
+                <div class="mb-6">
+                  <h4 class="text-[10px] font-black text-brand-500 uppercase tracking-[0.2em] mb-3">Technical Measurements</h4>
+                  <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <table class="w-full text-left border-collapse text-sm">
+                      <tbody>
+                        {techEntries.map(([key, value], i) => (
+                          <tr class={`transition-colors ${i % 2 === 0 ? 'bg-brand-50/50' : 'bg-white'}`}>
+                            <td class={`py-3 px-5 font-black text-brand-900 w-1/3 md:w-2/5 ${i !== techEntries.length - 1 ? 'border-b border-gray-200' : ''}`}>
+                              {formatSpecKey(key)}
+                            </td>
+                            <td class={`py-3 px-5 text-brand-800 font-medium ${i !== techEntries.length - 1 ? 'border-b border-gray-200' : ''}`}>
+                              {value}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {packEntries.length > 0 && (
+                <div class="mb-6">
+                  <h4 class="text-[10px] font-black text-brand-500 uppercase tracking-[0.2em] mb-3">Packaging & Logistics</h4>
+                  <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <table class="w-full text-left border-collapse text-sm">
+                      <tbody>
+                        {packEntries.map(([key, value], i) => (
+                          <tr class={`transition-colors ${i % 2 === 0 ? 'bg-brand-50/50' : 'bg-white'}`}>
+                            <td class={`py-3 px-5 font-black text-brand-900 w-1/3 md:w-2/5 ${i !== packEntries.length - 1 ? 'border-b border-gray-200' : ''}`}>
+                              {formatSpecKey(key)}
+                            </td>
+                            <td class={`py-3 px-5 text-brand-800 font-medium ${i !== packEntries.length - 1 ? 'border-b border-gray-200' : ''}`}>
+                              {value}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {item.Applications && (
+                <div>
+                  <h4 class="text-[10px] font-black text-brand-500 uppercase tracking-[0.2em] mb-3">Primary Applications</h4>
+                  <div class="bg-brand-50/40 border border-gray-200 rounded-xl p-5 text-sm font-medium text-brand-800 shadow-sm flex items-start gap-3 leading-relaxed">
+                    <svg class="w-5 h-5 text-brand-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    {item.Applications}
+                  </div>
+                </div>
+              )}
 
             </div>
           </div>
-        ))}
+          );
+        })}
+      </div>
+    </div>
+  </div>
+
+  <div id="directory-overlay" class="fixed inset-0 bg-brand-950/40 backdrop-blur-sm z-[100] hidden opacity-0 transition-opacity duration-300">
+    <div id="directory-drawer" class="absolute top-0 right-0 w-80 max-w-[85vw] h-full bg-white shadow-2xl translate-x-full transition-transform duration-300 ease-out flex flex-col">
+      
+      <div class="p-6 border-b border-gray-200 flex justify-between items-center bg-brand-50">
+        <h3 class="text-[11px] font-black text-brand-950 uppercase tracking-[0.2em] flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          Master Catalog
+        </h3>
+        <button id="close-directory" class="text-brand-500 hover:text-brand-900 bg-white border border-gray-200 rounded p-1.5 transition-colors shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      
+      <div class="p-6 overflow-y-auto flex-grow no-scrollbar">
+        <nav class="space-y-8">
+          {Object.entries(catalogData).map(([catName, catFamilies]) => (
+            <div>
+              <h4 class="text-xs font-black text-brand-950 uppercase tracking-tight mb-4 flex items-center border-b border-gray-200 pb-2">
+                {catName}
+              </h4>
+              <ul class="space-y-3 border-l-2 border-brand-100 ml-2 pl-4">
+                {Object.keys(catFamilies).map(famName => {
+                  const famSlug = famName.toLowerCase().replace(/\s+/g, '-');
+                  const isActive = name === famName;
+                  return (
+                    <li>
+                      <a 
+                        href={`/products/${famSlug}`} 
+                        class={`block text-xs font-bold transition-all duration-200 hover:translate-x-1 ${isActive ? 'text-brand-600' : 'text-brand-500 hover:text-brand-950'}`}
+                      >
+                        {famName}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </nav>
       </div>
 
     </div>
   </div>
 
 </MainLayout>
+
+<script>
+  function initDirectoryDrawer() {
+    const openBtn = document.getElementById('open-directory');
+    const closeBtn = document.getElementById('close-directory');
+    const overlay = document.getElementById('directory-overlay');
+    const drawer = document.getElementById('directory-drawer');
+
+    if (!openBtn || !overlay || !drawer) return;
+
+    const openDrawer = () => {
+      overlay.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        overlay.classList.remove('opacity-0');
+        drawer.classList.remove('translate-x-full');
+      });
+      document.body.style.overflow = 'hidden'; 
+    };
+
+    const closeDrawer = () => {
+      overlay.classList.add('opacity-0');
+      drawer.classList.add('translate-x-full');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = ''; 
+      }, 300); 
+    };
+
+    openBtn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeDrawer();
+    });
+  }
+
+  function initCarousels() {
+    const carousels = document.querySelectorAll('.sku-carousel');
+    
+    carousels.forEach(carousel => {
+      const imagesData = carousel.getAttribute('data-images');
+      if (!imagesData) return;
+
+      try {
+        const images = JSON.parse(imagesData);
+        if (images.length <= 1) return; 
+
+        const mainImg = carousel.querySelector('.main-display');
+        const thumbnails = carousel.querySelectorAll('.thumb-wrapper');
+        let currentIndex = 0;
+        let intervalId;
+
+        const setMainImage = (index) => {
+          currentIndex = index;
+          mainImg.src = images[currentIndex];
+
+          thumbnails.forEach((thumb, i) => {
+            if (i === currentIndex) {
+              thumb.className = "thumb-wrapper aspect-square rounded border overflow-hidden transition-all border-brand-400 bg-white opacity-100 shadow-sm ring-2 ring-brand-200";
+            } else {
+              thumb.className = "thumb-wrapper aspect-square rounded border overflow-hidden transition-all border-gray-200 bg-brand-50 opacity-60 hover:opacity-100 cursor-pointer";
+            }
+          });
+        };
+
+        const startInterval = () => {
+          intervalId = setInterval(() => {
+            let nextIndex = (currentIndex + 1) % images.length;
+            setMainImage(nextIndex);
+          }, 3000); 
+        };
+
+        thumbnails.forEach((thumb, i) => {
+          thumb.addEventListener('click', () => {
+            clearInterval(intervalId); 
+            setMainImage(i);
+            startInterval(); 
+          });
+        });
+
+        startInterval(); 
+
+      } catch (error) {
+        console.error("Carousel parsing failed", error);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initDirectoryDrawer();
+    initCarousels();
+  });
+  document.addEventListener('astro:page-load', () => {
+    initDirectoryDrawer();
+    initCarousels();
+  });
+</script>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>

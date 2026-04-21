@@ -80,9 +80,9 @@
             "Attributes": [
                 { "id": "biodegradable", "label": "100% Compostable" },
                 { "id": "microwave-safe", "label": "Microwave Safe" },
-                { "id": "snowflake", "label": "Freezer Safe" },
+                { "id": "freezer-safe", "label": "Freezer Safe" },
                 { "id": "non-toxic", "label": "PFAS-Free" },
-                { "id": "eco-friendly", "label": "Oil & Leak Resistant" }
+                { "id": "oil", "label": "Oil & Leak Resistant" }
             ],
             "image": "/products/10-in-plate.webp"
         }
@@ -174,8 +174,8 @@
             "Attributes": [
                 { "id": "biodegradable", "label": "100% Compostable" },
                 { "id": "microwave-safe", "label": "Microwave Safe" },
-                { "id": "eco-friendly", "label": "Soup & Liquid Ready" },
-                { "id": "snowflake", "label": "Freezer Safe" }
+                { "id": "soup", "label": "Soup & Liquid Ready" },
+                { "id": "freezer-safe", "label": "Freezer Safe" }
             ],
             "image": "/products/bowls-category.webp"
         }
@@ -238,9 +238,9 @@
             "ColdResistance": "Down to -20°F (-29°C)",
             "Attributes": [
                 { "id": "biodegradable", "label": "100% Compostable" },
-                { "id": "non-toxic", "label": "Rigid Separation" },
-                { "id": "microwave-safe", "label": "High Heat Resistance" },
-                { "id": "eco-friendly", "label": "Oil & Grease Proof" }
+                { "id": "rigid-separation", "label": "Rigid Separation" },
+                { "id": "high-heat", "label": "High Heat Resistance" },
+                { "id": "oil", "label": "Oil & Grease Proof" }
             ],
             "image": "/products/6-cp-tray.webp"
         },
@@ -301,9 +301,9 @@
             "ColdResistance": "Down to -20°F (-29°C)",
             "Attributes": [
                 { "id": "biodegradable", "label": "100% Compostable" },
-                { "id": "non-toxic", "label": "Rigid Separation" },
-                { "id": "microwave-safe", "label": "High Heat Resistance" },
-                { "id": "eco-friendly", "label": "Oil & Grease Proof" }
+                { "id": "rigid-separation", "label": "Rigid Separation" },
+                { "id": "high-heat", "label": "High Heat Resistance" },
+                { "id": "oil", "label": "Oil & Grease Proof" }
             ],
             "image": "/products/6-cp-tray.webp"
         }
@@ -356,8 +356,8 @@
             "Attributes": [
                 { "id": "biodegradable", "label": "100% Compostable" },
                 { "id": "microwave-safe", "label": "Microwave Safe" },
-                { "id": "non-toxic", "label": "Secure Lock Closure" },
-                { "id": "eco-friendly", "label": "Heat Retentive" }
+                { "id": "secure-lock", "label": "Secure Lock Closure" },
+                { "id": "heat-retentive", "label": "Heat Retentive" }
             ],
             "image": "/products/10-in-plate.webp"
         }
