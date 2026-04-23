@@ -84,7 +84,7 @@
                 { "id": "non-toxic", "label": "PFAS-Free" },
                 { "id": "oil", "label": "Oil & Leak Resistant" }
             ],
-            "image": "/products/10-in-plate.webp"
+            "image": "/products/plates-category.webp"
         }
     },
     "Bowls": {
@@ -127,45 +127,6 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Best for noodles, curries, and large portions",
-                    "images": ["/images/products/bowls-category.webp"]
-                },
-                {
-                    "ProductCode": "EL017-B",
-                    "Name": "500ml Round Bowl",
-                    "Diameter": "6\" (152mm)",
-                    "Depth": "2.2\" (56mm)",
-                    "Volume": "500ml (16oz)",
-                    "Weight": "16-18g",
-                    "PiecesPerPack": 50,
-                    "PacksPerCarton": 10,
-                    "PiecesPerCarton": 500,
-                    "Applications": "Large soup bowl for hearty servings",
-                    "images": ["/images/products/bowls-category.webp"]
-                },
-                {
-                    "ProductCode": "EL017-C",
-                    "Name": "750ml Round Bowl",
-                    "Diameter": "7\" (178mm)",
-                    "Depth": "2.5\" (64mm)",
-                    "Volume": "750ml (25oz)",
-                    "Weight": "20-24g",
-                    "PiecesPerPack": 50,
-                    "PacksPerCarton": 10,
-                    "PiecesPerCarton": 500,
-                    "Applications": "Extra-large for stews & chowders",
-                    "images": ["/images/products/bowls-category.webp"]
-                },
-                {
-                    "ProductCode": "EL017-D",
-                    "Name": "950ml Round Bowl",
-                    "Diameter": "8\" (203mm)",
-                    "Depth": "3\" (76mm)",
-                    "Volume": "950ml (32oz)",
-                    "Weight": "26-30g",
-                    "PiecesPerPack": 50,
-                    "PacksPerCarton": 10,
-                    "PiecesPerCarton": 500,
-                    "Applications": "Family-size or sharing portions",
                     "images": ["/images/products/bowls-category.webp"]
                 }
             ],
@@ -242,7 +203,7 @@
                 { "id": "high-heat", "label": "High Heat Resistance" },
                 { "id": "oil", "label": "Oil & Grease Proof" }
             ],
-            "image": "/products/6-cp-tray.webp"
+            "image": "/products/round-tray-category.webp"
         },
         "Square Meal Trays": {
             "Items": [
@@ -305,7 +266,7 @@
                 { "id": "high-heat", "label": "High Heat Resistance" },
                 { "id": "oil", "label": "Oil & Grease Proof" }
             ],
-            "image": "/products/6-cp-tray.webp"
+            "image": "/products/square-tray-category.webp"
         }
     },
     "Containers": {
@@ -359,7 +320,7 @@
                 { "id": "secure-lock", "label": "Secure Lock Closure" },
                 { "id": "heat-retentive", "label": "Heat Retentive" }
             ],
-            "image": "/products/10-in-plate.webp"
+            "image": "/products/clamshells-category.webp"
         }
     }
 }
