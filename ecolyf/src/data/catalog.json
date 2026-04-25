@@ -108,7 +108,7 @@
                     "PiecesPerCarton": 500,
                     "Applications": "Perfect for serving dips, chutneys, and small portions",
                     "images": ["/images/products/soup-bowls-product.webp",
-                                "/images/proudcts/180-ml-bowl-application.webp"]
+                                "/images/products/180-ml-bowl-application.webp"]
                 },
                 {
                     "ProductCode": "EL016",
@@ -122,7 +122,7 @@
                     "PiecesPerCarton": 500,
                     "Applications": "Ideal for soups, salads, and medium servings",
                     "images": ["/images/products/soup-bowls-product.webp",
-                                "/images/proudcts/240-ml-bowl-application.webp"]
+                                "/images/products/240-ml-bowl-application.webp"]
                 },
                 {
                     "ProductCode": "EL017",
@@ -136,7 +136,7 @@
                     "PiecesPerCarton": 500,
                     "Applications": "Best for noodles, curries, and large portions",
                     "images": ["/images/products/soup-bowls-product.webp",
-                                "/images/proudcts/350-ml-bowl-application.webp"]
+                                "/images/products/350-ml-bowl-application.webp"]
                 }
             ],
             "MOQ": 50000,
@@ -300,7 +300,7 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Perfect for burgers, sandwiches, and takeaway snacks",
-                    "images": ["/images/products/clamshells-product.webp",
+                    "images": ["/images/products/clamshell-product.webp",
                                 "/images/products/6x6-clamshell-application.webp"]
                 },
                 {
@@ -314,7 +314,7 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Popular choice for combo meals, noodles, pastas, or biryani",
-                    "images": ["/images/products/clamshells-product.webp",
+                    "images": ["/images/products/clamshell-product.webp",
                                 "/images/products/8x8-clamshell-application.webp"]
                 },
                 {
@@ -328,7 +328,7 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Best for large meals, rice dishes, and full-course servings",
-                    "images": ["/images/products/clamshells-product.webp",
+                    "images": ["/images/products/clamshell-product.webp",
                                 "/images/products/9x9-clamshell-application.webp"]
                 }
             ],
