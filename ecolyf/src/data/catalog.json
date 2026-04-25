@@ -12,7 +12,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Serving snacks, Desserts, and Side dishes",
-                    "images": ["/images/products/10-in-plate.webp"]
+                    "images": ["/images/products/round-plate-product.webp",
+                                "/images/products/6-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL002",
@@ -24,7 +25,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Convenient for salads, starters, and snacks",
-                    "images": ["/images/products/10-in-plate.webp"]
+                    "images": ["/images/products/round-plate-product.webp",
+                                "/images/products/7-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL003",
@@ -36,7 +38,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Perfect for rice, pasta, and balanced meals",
-                    "images": ["/images/products/10-in-plate.webp"]
+                    "images": ["/images/products/round-plate-product.webp",
+                                "/images/products/9-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL004",
@@ -48,7 +51,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Ideal for full-course meals and buffets",
-                    "images": ["/images/products/10-in-plate.webp"]
+                    "images": ["/images/products/round-plate-product.webp",
+                                "/images/products/10-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL005",
@@ -60,7 +64,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Premium size for fine dining and restaurants",
-                    "images": ["/images/products/10-in-plate.webp"]
+                    "images": ["/images/products/round-plate-product.webp",
+                                "/images/products/11-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL006",
@@ -72,7 +77,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Extra-large size for sharing platters and party servings",
-                    "images": ["/images/products/10-in-plate.webp"]
+                    "images": ["/images/products/round-plate-product.webp",
+                                "/images/products/12-in-plate-application.webp"]
                 }
             ],
             "MOQ": 50000,
@@ -101,7 +107,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Perfect for serving dips, chutneys, and small portions",
-                    "images": ["/images/products/bowls-category.webp"]
+                    "images": ["/images/products/soup-bowls-product.webp",
+                                "/images/proudcts/180-ml-bowl-application.webp"]
                 },
                 {
                     "ProductCode": "EL016",
@@ -114,7 +121,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Ideal for soups, salads, and medium servings",
-                    "images": ["/images/products/bowls-category.webp"]
+                    "images": ["/images/products/soup-bowls-product.webp",
+                                "/images/proudcts/240-ml-bowl-application.webp"]
                 },
                 {
                     "ProductCode": "EL017",
@@ -127,7 +135,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Best for noodles, curries, and large portions",
-                    "images": ["/images/products/bowls-category.webp"]
+                    "images": ["/images/products/soup-bowls-product.webp",
+                                "/images/proudcts/350-ml-bowl-application.webp"]
                 }
             ],
             "MOQ": 50000,
@@ -154,7 +163,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Perfect for combo meals with three portions",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/3-cp-round-tray-product.webp",
+                                "/images/products/3-cp-round-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL008",
@@ -166,7 +176,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Great for balanced meals with multiple food groups",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/4-cp-round-tray-product.webp",
+                                "/images/products/4-cp-round-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL009",
@@ -178,7 +189,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Designed for thali-style or full-course dining",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/5-cp-round-tray-product.webp",
+                                "/images/products/5-cp-round-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL010",
@@ -190,7 +202,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Best for elaborate meals with diverse dishes",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/6-cp-round-tray-product.webp",
+                                "/images/products/6-cp-round-tray-application.webp"]
                 }
             ],
             "MOQ": 50000,
@@ -217,7 +230,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Perfect for combo meals with three portions",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/3-cp-square-tray-product.webp",
+                                "/images/products/3-cp-square-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL012",
@@ -229,7 +243,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Great for balanced meals with multiple food groups",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/4-cp-square-tray-product.webp",
+                                "/images/products/4-cp-square-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL013",
@@ -241,7 +256,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Designed for thali-style or full-course dining",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/5-cp-square-tray-product.webp",
+                                "/images/products/5-cp-square-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL014",
@@ -253,7 +269,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Best for elaborate meals with diverse dishes",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/6-cp-square-tray-product.webp",
+                                "/images/products/6-cp-square-tray-application.webp"]
                 }
             ],
             "MOQ": 50000,
@@ -283,7 +300,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Perfect for burgers, sandwiches, and takeaway snacks",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/clamshells-product.webp",
+                                "/images/products/6x6-clamshell-application.webp"]
                 },
                 {
                     "ProductCode": "EL019",
@@ -296,7 +314,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Popular choice for combo meals, noodles, pastas, or biryani",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/clamshells-product.webp",
+                                "/images/products/8x8-clamshell-application.webp"]
                 },
                 {
                     "ProductCode": "EL020",
@@ -309,7 +328,8 @@
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
                     "Applications": "Best for large meals, rice dishes, and full-course servings",
-                    "images": ["/images/products/6-cp-tray.webp"]
+                    "images": ["/images/products/clamshells-product.webp",
+                                "/images/products/9x9-clamshell-application.webp"]
                 }
             ],
             "MOQ": 50000,
