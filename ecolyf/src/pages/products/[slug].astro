@@ -169,13 +169,25 @@ const packagingKeys = ['PiecesPerPack', 'PacksPerCarton', 'PiecesPerCarton'];
                 {item.ProductCode || `SKU ${index + 1}`}
               </div>
               
-              <div class="aspect-square flex items-center justify-center mb-4 mt-6">
+              <div class="aspect-square flex items-center justify-center mb-4 mt-6 relative group/main-img overflow-hidden rounded-xl bg-white">
                 <img 
                   src={item.images && item.images.length > 0 ? item.images[0] : `/images/placeholder.webp`} 
                   alt={item.Name} 
-                  class="main-display w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
+                  class="main-display w-full h-full object-contain group-hover/main-img:scale-105 transition-transform duration-500 drop-shadow-md p-4"
                   onerror="this.onerror=null; this.src='/images/placeholder.webp';"
                 />
+                
+                {/* Manual Navigation Arrows - PERSISTENT VISIBILITY */}
+                {item.images && item.images.length > 1 && (
+                  <>
+                    <button type="button" class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 bg-white text-brand-900 p-2 rounded-full shadow-md border border-gray-200 hover:bg-brand-50 hover:text-brand-600 transition-all focus:outline-none z-10 hover:scale-110 active:scale-95" aria-label="Previous image">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button type="button" class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 bg-white text-brand-900 p-2 rounded-full shadow-md border border-gray-200 hover:bg-brand-50 hover:text-brand-600 transition-all focus:outline-none z-10 hover:scale-110 active:scale-95" aria-label="Next image">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                  </>
+                )}
               </div>
 
               <div class="grid grid-cols-3 gap-2">
@@ -349,8 +361,10 @@ const packagingKeys = ['PiecesPerPack', 'PacksPerCarton', 'PiecesPerCarton'];
 
         const mainImg = carousel.querySelector('.main-display');
         const thumbnails = carousel.querySelectorAll('.thumb-wrapper');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        
         let currentIndex = 0;
-        let intervalId;
 
         const setMainImage = (index) => {
           currentIndex = index;
@@ -365,22 +379,23 @@ const packagingKeys = ['PiecesPerPack', 'PacksPerCarton', 'PiecesPerCarton'];
           });
         };
 
-        const startInterval = () => {
-          intervalId = setInterval(() => {
-            let nextIndex = (currentIndex + 1) % images.length;
-            setMainImage(nextIndex);
-          }, 4000); 
-        };
-
         thumbnails.forEach((thumb, i) => {
-          thumb.addEventListener('click', () => {
-            clearInterval(intervalId); 
-            setMainImage(i);
-            startInterval(); 
-          });
+          thumb.addEventListener('click', () => setMainImage(i));
         });
 
-        startInterval(); 
+        if (prevBtn && nextBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            let prevIndex = (currentIndex - 1 + images.length) % images.length;
+            setMainImage(prevIndex);
+          });
+
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            let nextIndex = (currentIndex + 1) % images.length;
+            setMainImage(nextIndex);
+          });
+        }
 
       } catch (error) {
         console.error("Carousel parsing failed", error);
