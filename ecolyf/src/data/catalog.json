@@ -11,9 +11,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Serving snacks, Desserts, and Side dishes",
-                    "images": ["/images/products/round-plate-product.webp",
-                                "/images/products/6-in-plate-application.webp"]
+                    "Applications": "Wholesale export for HORECA and commercial catering. SUPD compliant for side dishes and desserts.",
+                    "images": ["/images/products/round-plate-product.webp", "/images/products/6-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL002",
@@ -24,9 +23,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Convenient for salads, starters, and snacks",
-                    "images": ["/images/products/round-plate-product.webp",
-                                "/images/products/7-in-plate-application.webp"]
+                    "Applications": "Bulk supply for corporate events and airline catering. 100% PFAS-free compostable appetizer serving.",
+                    "images": ["/images/products/round-plate-product.webp", "/images/products/7-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL003",
@@ -37,9 +35,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Perfect for rice, pasta, and balanced meals",
-                    "images": ["/images/products/round-plate-product.webp",
-                                "/images/products/9-in-plate-application.webp"]
+                    "Applications": "Standard industrial catering and food service distribution. EU plastic-tax exempt dining solution.",
+                    "images": ["/images/products/round-plate-product.webp", "/images/products/9-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL004",
@@ -50,9 +47,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Ideal for full-course meals and buffets",
-                    "images": ["/images/products/round-plate-product.webp",
-                                "/images/products/10-in-plate-application.webp"]
+                    "Applications": "Heavy-duty full-course meal service. Designed for zero-waste institutional procurement and buffets.",
+                    "images": ["/images/products/round-plate-product.webp", "/images/products/10-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL005",
@@ -63,9 +59,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Premium size for fine dining and restaurants",
-                    "images": ["/images/products/round-plate-product.webp",
-                                "/images/products/11-in-plate-application.webp"]
+                    "Applications": "Premium commercial fine dining. Structural rigidity optimized for hot and heavy global cuisine.",
+                    "images": ["/images/products/round-plate-product.webp", "/images/products/11-in-plate-application.webp"]
                 },
                 {
                     "ProductCode": "EL006",
@@ -76,18 +71,17 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Extra-large size for sharing platters and party servings",
-                    "images": ["/images/products/round-plate-product.webp",
-                                "/images/products/12-in-plate-application.webp"]
+                    "Applications": "Extra-large commercial platter sizing. High load-bearing capacity for bulk hospitality export.",
+                    "images": ["/images/products/round-plate-product.webp", "/images/products/12-in-plate-application.webp"]
                 }
             ],
             "MOQ": 50000,
             "LeadTime": "15-25 days",
             "Attributes": [
-                { "id": "biodegradable", "label": "100% Compostable" },
+                { "id": "biodegradable", "label": "TUV OK Compost Industrial" },
                 { "id": "microwave-safe", "label": "Microwave Safe" },
                 { "id": "freezer-safe", "label": "Freezer Safe" },
-                { "id": "non-toxic", "label": "PFAS-Free" },
+                { "id": "non-toxic", "label": "Certified PFAS-Free" },
                 { "id": "oil", "label": "Oil & Leak Resistant" }
             ],
             "image": "/products/plates-category.webp"
@@ -106,9 +100,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Perfect for serving dips, chutneys, and small portions",
-                    "images": ["/images/products/soup-bowls-product.webp",
-                                "/images/products/180-ml-bowl-application.webp"]
+                    "Applications": "Biodegradable condiment and dip distribution. Ideal for QSR (Quick Service Restaurant) supply chains.",
+                    "images": ["/images/products/soup-bowls-product.webp", "/images/products/180-ml-bowl-application.webp"]
                 },
                 {
                     "ProductCode": "EL016",
@@ -120,9 +113,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Ideal for soups, salads, and medium servings",
-                    "images": ["/images/products/soup-bowls-product.webp",
-                                "/images/products/240-ml-bowl-application.webp"]
+                    "Applications": "Medium capacity food-grade packaging. Thermal resistant for hot soup and commercial salad bars.",
+                    "images": ["/images/products/soup-bowls-product.webp", "/images/products/240-ml-bowl-application.webp"]
                 },
                 {
                     "ProductCode": "EL017",
@@ -134,17 +126,16 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Best for noodles, curries, and large portions",
-                    "images": ["/images/products/soup-bowls-product.webp",
-                                "/images/products/350-ml-bowl-application.webp"]
+                    "Applications": "High-volume noodle and liquid takeaway. Sourced for international delivery networks and food-prep logistics.",
+                    "images": ["/images/products/soup-bowls-product.webp", "/images/products/350-ml-bowl-application.webp"]
                 }
             ],
             "MOQ": 50000,
             "LeadTime": "15-25 days",
             "Attributes": [
-                { "id": "biodegradable", "label": "100% Compostable" },
+                { "id": "biodegradable", "label": "TUV OK Compost Industrial" },
                 { "id": "microwave-safe", "label": "Microwave Safe" },
-                { "id": "soup", "label": "Soup & Liquid Ready" },
+                { "id": "soup", "label": "High Thermal Retention" },
                 { "id": "freezer-safe", "label": "Freezer Safe" }
             ],
             "image": "/products/bowls-category.webp"
@@ -162,9 +153,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Perfect for combo meals with three portions",
-                    "images": ["/images/products/3-cp-round-tray-product.webp",
-                                "/images/products/3-cp-round-tray-application.webp"]
+                    "Applications": "Institutional supply for schools and hospital canteens. Rigid compartmentalization for automated meal prep.",
+                    "images": ["/images/products/3-cp-round-tray-product.webp", "/images/products/3-cp-round-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL008",
@@ -175,9 +165,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Great for balanced meals with multiple food groups",
-                    "images": ["/images/products/4-cp-round-tray-product.webp",
-                                "/images/products/4-cp-round-tray-application.webp"]
+                    "Applications": "Balanced meal segmentation for industrial catering and European public sector food service contracts.",
+                    "images": ["/images/products/4-cp-round-tray-product.webp", "/images/products/4-cp-round-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL009",
@@ -188,9 +177,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Designed for thali-style or full-course dining",
-                    "images": ["/images/products/5-cp-round-tray-product.webp",
-                                "/images/products/5-cp-round-tray-application.webp"]
+                    "Applications": "Wholesale multi-course catering trays. Engineered for spill-resistance during complex commercial service.",
+                    "images": ["/images/products/5-cp-round-tray-product.webp", "/images/products/5-cp-round-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL010",
@@ -201,9 +189,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Best for elaborate meals with diverse dishes",
-                    "images": ["/images/products/6-cp-round-tray-product.webp",
-                                "/images/products/6-cp-round-tray-application.webp"]
+                    "Applications": "Maximum division for diverse international cuisines. High base weight for premium buffet distribution.",
+                    "images": ["/images/products/6-cp-round-tray-product.webp", "/images/products/6-cp-round-tray-application.webp"]
                 }
             ],
             "MOQ": 50000,
@@ -211,10 +198,10 @@
             "HeatResistance": "Up to 200°F (95°C)",
             "ColdResistance": "Down to -20°F (-29°C)",
             "Attributes": [
-                { "id": "biodegradable", "label": "100% Compostable" },
+                { "id": "biodegradable", "label": "EU Plastic-Tax Exempt" },
                 { "id": "rigid-separation", "label": "Rigid Separation" },
                 { "id": "high-heat", "label": "High Heat Resistance" },
-                { "id": "oil", "label": "Oil & Grease Proof" }
+                { "id": "oil", "label": "Grease & Moisture Proof" }
             ],
             "image": "/products/round-tray-category.webp"
         },
@@ -229,9 +216,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Perfect for combo meals with three portions",
-                    "images": ["/images/products/3-cp-square-tray-product.webp",
-                                "/images/products/3-cp-square-tray-application.webp"]
+                    "Applications": "Space-optimized geometry for global shipping efficiency. Preferred by aviation and rail catering sectors.",
+                    "images": ["/images/products/3-cp-square-tray-product.webp", "/images/products/3-cp-square-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL012",
@@ -242,9 +228,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Great for balanced meals with multiple food groups",
-                    "images": ["/images/products/4-cp-square-tray-product.webp",
-                                "/images/products/4-cp-square-tray-application.webp"]
+                    "Applications": "High-density packing profile. Wholesale distribution for corporate cafeterias and commercial meal delivery.",
+                    "images": ["/images/products/4-cp-square-tray-product.webp", "/images/products/4-cp-square-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL013",
@@ -255,9 +240,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Designed for thali-style or full-course dining",
-                    "images": ["/images/products/5-cp-square-tray-product.webp",
-                                "/images/products/5-cp-square-tray-application.webp"]
+                    "Applications": "Enterprise-grade multi-compartment service. Superior stackability for distributor warehouse optimization.",
+                    "images": ["/images/products/5-cp-square-tray-product.webp", "/images/products/5-cp-square-tray-application.webp"]
                 },
                 {
                     "ProductCode": "EL014",
@@ -268,9 +252,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Best for elaborate meals with diverse dishes",
-                    "images": ["/images/products/6-cp-square-tray-product.webp",
-                                "/images/products/6-cp-square-tray-application.webp"]
+                    "Applications": "Maximum utility sustainable food packaging. Certified compostable alternative to EPS foam trays.",
+                    "images": ["/images/products/6-cp-square-tray-product.webp", "/images/products/6-cp-square-tray-application.webp"]
                 }
             ],
             "MOQ": 50000,
@@ -278,10 +261,10 @@
             "HeatResistance": "Up to 200°F (95°C)",
             "ColdResistance": "Down to -20°F (-29°C)",
             "Attributes": [
-                { "id": "biodegradable", "label": "100% Compostable" },
-                { "id": "rigid-separation", "label": "Rigid Separation" },
+                { "id": "biodegradable", "label": "EU Plastic-Tax Exempt" },
+                { "id": "rigid-separation", "label": "Industrial Stackability" },
                 { "id": "high-heat", "label": "High Heat Resistance" },
-                { "id": "oil", "label": "Oil & Grease Proof" }
+                { "id": "oil", "label": "Grease & Moisture Proof" }
             ],
             "image": "/products/square-tray-category.webp"
         }
@@ -299,9 +282,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Perfect for burgers, sandwiches, and takeaway snacks",
-                    "images": ["/images/products/clamshell-product.webp",
-                                "/images/products/6x6-clamshell-application.webp"]
+                    "Applications": "Global QSR and dark kitchen supply. SUPD compliant takeaway hinged packaging with secure locking tab.",
+                    "images": ["/images/products/clamshell-product.webp", "/images/products/6x6-clamshell-application.webp"]
                 },
                 {
                     "ProductCode": "EL019",
@@ -313,9 +295,8 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Popular choice for combo meals, noodles, pastas, or biryani",
-                    "images": ["/images/products/clamshell-product.webp",
-                                "/images/products/8x8-clamshell-application.webp"]
+                    "Applications": "Wholesale delivery container distribution. Moisture-resistant bagasse architecture prevents transit degradation.",
+                    "images": ["/images/products/clamshell-product.webp", "/images/products/8x8-clamshell-application.webp"]
                 },
                 {
                     "ProductCode": "EL020",
@@ -327,18 +308,17 @@
                     "PiecesPerPack": 50,
                     "PacksPerCarton": 10,
                     "PiecesPerCarton": 500,
-                    "Applications": "Best for large meals, rice dishes, and full-course servings",
-                    "images": ["/images/products/clamshell-product.webp",
-                                "/images/products/9x9-clamshell-application.webp"]
+                    "Applications": "Large format commercial takeaway enclosure. High thermal retention designed for premium food delivery networks.",
+                    "images": ["/images/products/clamshell-product.webp", "/images/products/9x9-clamshell-application.webp"]
                 }
             ],
             "MOQ": 50000,
             "LeadTime": "15-25 days",
             "Attributes": [
-                { "id": "biodegradable", "label": "100% Compostable" },
+                { "id": "biodegradable", "label": "TUV OK Compost Industrial" },
                 { "id": "microwave-safe", "label": "Microwave Safe" },
-                { "id": "secure-lock", "label": "Secure Lock Closure" },
-                { "id": "heat-retentive", "label": "Heat Retentive" }
+                { "id": "secure-lock", "label": "Secure Transit Lock" },
+                { "id": "heat-retentive", "label": "Thermal Insulation" }
             ],
             "image": "/products/clamshells-category.webp"
         }
