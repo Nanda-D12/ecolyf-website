@@ -92,6 +92,38 @@ const schemaData = {
   ]
 };
 
+// Dynamic Breadcrumb Schema for [slug].astro
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { 
+      "@type": "ListItem", 
+      "position": 1, 
+      "name": "Home", 
+      "item": "https://eco-lyf.com/" 
+    },
+    { 
+      "@type": "ListItem", 
+      "position": 2, 
+      "name": "Products", 
+      "item": "https://eco-lyf.com/products" 
+    },
+    { 
+      "@type": "ListItem", 
+      "position": 3, 
+      "name": category, 
+      "item": `https://eco-lyf.com/products#${category.toLowerCase().replace(/\s+/g, '-')}` 
+    },
+    { 
+      "@type": "ListItem", 
+      "position": 4, 
+      "name": name, 
+      "item": `https://eco-lyf.com/products/${currentSlug}` 
+    }
+  ]
+};
+
 // Helper to convert technical JSON keys to readable table labels
 const formatSpecKey = (key) => {
   const result = key.replace(/([A-Z])/g, ' $1').trim();
@@ -113,6 +145,9 @@ const packagingKeys = ['PiecesPerPack', 'PacksPerCarton', 'PiecesPerCarton'];
 ---
 
 <MainLayout title={seo.title} description={seo.description}>
+  
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   
   <div class="bg-brand-50 border-b border-brand-100 sticky top-20 z-30 shadow-sm backdrop-blur-md bg-opacity-95">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">

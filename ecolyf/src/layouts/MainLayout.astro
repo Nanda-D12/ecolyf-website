@@ -9,14 +9,83 @@ interface Props {
   description?: string;
 }
 
+// Dynamic injection with aggressive B2B defaults
 const { 
-  title = "EcoLyf | Global Exporter & Supply Chain Manager", 
-  description = "Institutional-grade supply of 100% biodegradable bagasse tableware. Sustainable export operations at global scale." 
+  title = "Bagasse Plates Exporter India | Bulk Compostable Tableware | EcoLyf", 
+  description = "Premium bagasse plates, bowls, and clamshells exported direct from India to Europe. ISO certified, EN13432 compliant. Wholesale PFAS-free manufacturing." 
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString() || 'https://eco-lyf.com';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const gaTrackingId = import.meta.env.PUBLIC_GA_ID; // Configure via .env to decouple dev from prod
+
+// Elite Schema Generation for Google's Knowledge Graph
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  "name": "EcoLyf",
+  "alternateName": "EcoLyf International Exports",
+  "url": siteUrl,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${siteUrl}/ecolyf-icon.svg`
+  },
+  "description": "Direct manufacturer and exporter of EN13432 certified bagasse tableware. Supplying wholesale compostable packaging to the UK, EU, and global markets.",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+91-8608503282",
+      "contactType": "Sales",
+      "email": "sales@eco-lyf.com",
+      "availableLanguage": ["English"]
+    }
+  ],
+  "areaServed": [
+    {"@type": "Country", "name": "United Kingdom"},
+    {"@type": "Country", "name": "Germany"},
+    {"@type": "Country", "name": "France"},
+    {"@type": "Country", "name": "Spain"}
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "name": "EcoLyf Export Catalog",
+  "url": siteUrl,
+  "publisher": {
+    "@id": `${siteUrl}/#organization`
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${siteUrl}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// Add this under your websiteSchema in MainLayout.astro
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${siteUrl}/#localbusiness`,
+  "name": "EcoLyf International",
+  "image": `${siteUrl}/ecolyf-icon.svg`,
+  "telephone": "+91-8608503282", // Your exact phone number
+  "email": "sales@eco-lyf.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "No. 5, Thirumurugan Nagar Extension, Pappakurichi Main Road, North Kattur, Trichy, Tamil Nadu - 620019",
+    "streetAddress": "No. 5, Thirumurugan Nagar Extension, Pappakurichi Main Road, North Kattur",
+    "addressLocality": "Trichy",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "620019",
+    "addressCountry": "IN"
+  },
+  "areaServed": ["GB", "DE", "FR", "ES"],
+  "serviceType": ["B2B Supply", "Wholesale", "Export"]
+};
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -37,12 +106,21 @@ const gaTrackingId = import.meta.env.PUBLIC_GA_ID; // Configure via .env to deco
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="canonical" href={canonicalURL} />
-    <link rel="icon" type="image/svg+xml" href="/ecolyf-icon.svg" />
-    
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/ecolyf-icon.svg" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="EcoLyf Export" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   </head>
   
   <body class="bg-white text-brand-950 font-sans antialiased flex flex-col min-h-screen">
