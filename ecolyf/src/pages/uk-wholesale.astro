@@ -1,0 +1,236 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import catalogData from '../data/catalog.json';
+
+const title = "Bagasse Wholesale UK | Direct Manufacturer & Compostable Supplier | EcoLyf";
+const description = "Direct Indian manufacturer supplying UK restaurants and distributors. FCL logistics to Felixstowe/London gateway. EN13432 certified, exempt from UK Plastic Packaging Tax.";
+
+// Localized Schema targeting the UK explicitly
+const ukPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": "https://eco-lyf.com/uk-wholesale",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "UK B2B Wholesale, Foodservice Distributors, Procurement Managers",
+    "geographicArea": {
+      "@type": "AdministrativeArea",
+      "name": "United Kingdom"
+    }
+  }
+};
+
+// Helper for dynamic size pills
+const getPillLabel = (item) => {
+  if (item.Volume) return item.Volume.split(' ')[0];
+  if (item.Name.includes('CP')) return item.Name.split(' ').slice(0, 2).join(' ');
+  if (item.Name.includes('x')) return item.Name.split(' ')[0];
+  if (item.Diameter) return item.Diameter.split(' ')[0];
+  return item.Name.split(' ')[0];
+};
+
+// Extract top 3 families perfectly mapped to their data
+const featuredFamilies = [];
+(() => {
+  for (const [categoryName, categoryFamilies] of Object.entries(catalogData)) {
+    for (const [familyName, familyData] of Object.entries(categoryFamilies)) {
+      if (featuredFamilies.length >= 3) return;
+      featuredFamilies.push({
+        category: categoryName,
+        name: familyName,
+        slug: familyName.toLowerCase().replace(/\s+/g, '-'),
+        data: familyData
+      });
+    }
+  }
+})();
+---
+
+<MainLayout title={title} description={description}>
+  
+  <script type="application/ld+json" set:html={JSON.stringify(ukPageSchema)} />
+
+  <section class="relative py-24 lg:py-32 bg-brand-950 border-b-4 border-brand-500 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('/images/hero-pattern.png')] bg-cover bg-center"></div>
+    <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-900 border border-brand-800 text-brand-300 text-[10px] font-bold uppercase tracking-widest mb-6 shadow-inner">
+          <span class="text-sm">🇬🇧</span> UK Market Supply Chain
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-6 leading-tight">
+          Direct Wholesale Bagasse Supply for the <span class="text-brand-400">United Kingdom</span>
+        </h1>
+        <p class="text-lg text-brand-200 font-medium mb-10 leading-relaxed max-w-xl">
+          Bypass local importers and 40% markups. Source premium, EN13432 certified compostable tableware directly from our Indian manufacturing facility to your UK distribution center.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/#quote" class="bg-brand-600 text-white text-center font-bold text-xs uppercase tracking-widest px-8 py-4 rounded hover:bg-brand-500 transition-colors shadow-lg">
+            Request UK Price List (CIF/FOB)
+          </a>
+        </div>
+      </div>
+      <div class="hidden lg:block">
+        <img src="/mobile-hero.webp" alt="Bulk Bagasse Wholesale UK" class="rounded-2xl shadow-2xl border border-brand-800" onerror="this.onerror=null; this.src='/images/placeholder.webp';" />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-6 border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-wrap justify-center items-center gap-6 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+        <div class="flex items-center gap-2 text-brand-950 font-bold text-sm tracking-widest uppercase">
+          <i class="fas fa-check-circle text-brand-600 text-xl"></i> UK PPT Exempt
+        </div>
+        <div class="flex items-center gap-2 text-brand-950 font-bold text-sm tracking-widest uppercase">
+          <i class="fas fa-certificate text-brand-600 text-xl"></i> EN13432 Certified
+        </div>
+        <div class="flex items-center gap-2 text-brand-950 font-bold text-sm tracking-widest uppercase">
+          <i class="fas fa-ship text-brand-600 text-xl"></i> Direct to Felixstowe
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-brand-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[10px] font-extrabold text-brand-500 tracking-[0.2em] uppercase mb-3">High-Volume Inventory</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-950 tracking-tight">Our Primary UK Export Lines</h3>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredFamilies.map(family => (
+          <a href={`/products/${family.slug}`} class="group block h-full">
+            <div class="bg-white rounded-3xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 h-full flex flex-col relative">
+              
+              <div class="absolute top-4 left-4 z-20">
+                <span class="bg-brand-950/80 backdrop-blur-md text-white text-[9px] font-bold px-3 py-1.5 rounded uppercase tracking-widest border border-brand-800">
+                  {family.category}
+                </span>
+              </div>
+
+              <div class="h-64 sm:h-72 overflow-hidden relative bg-brand-50 flex items-center justify-center">
+                <img 
+                  src={family.data.image || '/images/placeholder.webp'} 
+                  alt={family.name} 
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                  onerror="this.onerror=null; this.src='/images/placeholder.webp';"
+                />
+              </div>
+
+              <div class="p-8 flex flex-col flex-grow border-t border-brand-50">
+                <h3 class="text-2xl font-black text-brand-950 mb-2 tracking-tight">{family.name}</h3>
+                
+                <div class="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-3 flex gap-4">
+                  <span>{family.data.Items?.length || 0} Sizes Available</span>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 mb-6 pb-5 border-b border-brand-50">
+                  {family.data.Items?.map(item => (
+                    <span class="bg-brand-100/60 border border-brand-200 text-brand-800 text-[10px] font-extrabold px-2 py-0.5 rounded shadow-sm tracking-tight">
+                      {getPillLabel(item)}
+                    </span>
+                  ))}
+                </div>
+
+                <div class="grid grid-cols-4 gap-2 mb-8 flex-grow content-start">
+                  {family.data.Attributes?.slice(0, 4).map(attr => (
+                    <div class="bg-brand-50/70 rounded-xl p-2 flex flex-col items-center justify-center aspect-square group/tile hover:bg-brand-100 transition-colors duration-300">
+                      <img 
+                        src={`/icons/${attr.id}.png`} 
+                        alt={attr.label}
+                        class="w-6 h-6 sm:w-8 sm:h-8 object-contain mb-1.5 group-hover/tile:scale-110 transition-transform duration-300"
+                      />
+                      <span class="text-[8px] sm:text-[9px] font-black text-brand-950 leading-tight uppercase tracking-tight text-center line-clamp-2">
+                        {attr.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-brand-50">
+                  <div>
+                    <p class="text-[9px] uppercase tracking-widest font-bold text-brand-400 mb-0.5">Base MOQ</p>
+                    <p class="text-sm font-black text-brand-950">{family.data.MOQ ? family.data.MOQ.toLocaleString() : 0} pcs</p>
+                  </div>
+                  <div class="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href="/products" class="text-brand-600 font-bold hover:text-brand-800 transition-colors flex items-center justify-center gap-2">
+          View Complete Master Catalog <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-[10px] font-black text-brand-500 uppercase tracking-[0.2em] mb-3">Regulatory & Financial Advantage</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-950 mb-6 leading-tight">Exempt from the UK Plastic Packaging Tax (PPT)</h3>
+        <p class="text-brand-700 mb-6 leading-relaxed font-medium">
+          Importing single-use plastics into the UK triggers heavy taxation under the PPT (£210.82 per tonne). EcoLyf's bagasse products are manufactured using 100% natural, unmodified sugarcane fibers, granting you total exemption.
+        </p>
+        <ul class="space-y-4 text-sm font-bold text-brand-900">
+          <li class="flex items-center gap-4 bg-brand-50 p-4 rounded-xl border border-brand-100">
+            <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand-600 shadow-sm shrink-0">✓</span>
+            Zero UK Plastic Tax Liability on Customs Clearance
+          </li>
+          <li class="flex items-center gap-4 bg-brand-50 p-4 rounded-xl border border-brand-100">
+            <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand-600 shadow-sm shrink-0">✓</span>
+            EN13432 Certified for UK Industrial Composting
+          </li>
+          <li class="flex items-center gap-4 bg-brand-50 p-4 rounded-xl border border-brand-100">
+            <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand-600 shadow-sm shrink-0">✓</span>
+            PFAS-Free Documentation Included with Bill of Lading
+          </li>
+        </ul>
+      </div>
+      
+      <div class="bg-brand-950 p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-800 rounded-full blur-3xl opacity-30"></div>
+        <h4 class="text-2xl font-black text-white mb-8 relative z-10">India to UK Shipping Matrix</h4>
+        <div class="space-y-6 relative z-10">
+          <div class="border-b border-brand-800 pb-5">
+            <div class="text-[10px] font-bold uppercase tracking-widest text-brand-400 mb-1">Standard Transit Times (Ocean Freight)</div>
+            <div class="text-white text-lg font-bold">Nhava Sheva / Chennai &rarr; Felixstowe</div>
+            <div class="text-brand-300 font-medium mt-1 flex items-center gap-2">
+              <i class="far fa-clock"></i> Est. 24 - 32 Days
+            </div>
+          </div>
+          <div class="border-b border-brand-800 pb-5">
+            <div class="text-[10px] font-bold uppercase tracking-widest text-brand-400 mb-1">Supported Incoterms</div>
+            <div class="text-white text-lg font-bold">FOB | CIF | CFR</div>
+          </div>
+          <div>
+            <div class="text-[10px] font-bold uppercase tracking-widest text-brand-400 mb-1">Volume Logistics</div>
+            <div class="text-white text-lg font-bold">20ft / 40ft HQ Container Loads</div>
+            <div class="text-brand-300 font-medium mt-1">LCL consolidation available for trial orders</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-brand-50 border-t border-brand-100 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl font-black text-brand-950 mb-6">Ready to secure your UK supply chain?</h2>
+      <p class="text-brand-700 mb-10">Contact our export division today for a custom CIF quote delivered to your exact UK warehouse.</p>
+      <a href="/#quote" class="inline-block bg-brand-600 text-white font-bold text-sm uppercase tracking-widest px-10 py-5 rounded-lg hover:bg-brand-500 transition-all hover:-translate-y-1 shadow-xl hover:shadow-2xl">
+        Request Official Quote
+      </a>
+    </div>
+  </section>
+
+</MainLayout>

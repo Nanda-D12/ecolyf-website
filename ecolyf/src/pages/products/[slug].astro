@@ -24,7 +24,105 @@ export function getStaticPaths() {
   return paths;
 }
 
+// 1. EXTRACT PROPS FIRST (Fixes the ReferenceError)
 const { category, name, data } = Astro.props;
+const currentSlug = Astro.params.slug;
+
+// 2. DEFINE SEO MAP
+const seoMetaMap = {
+  "round-plates": {
+    title: "Wholesale Bagasse Plates Supplier | EcoLyf",
+    description: "Bulk sugarcane bagasse plates manufacturer. Premium biodegradable round and square plates for commercial catering, export, and food service."
+  },
+  "soup-bowls": {
+    title: "Compostable Bagasse Bowls in Bulk | EcoLyf",
+    description: "High-quality, leak-resistant sugarcane bagasse bowls for wholesale distribution. Available in multiple fluid capacities for international export."
+  },
+  "round-meal-trays": {
+    title: "Compartment Bagasse Meal Trays Manufacturer | EcoLyf",
+    description: "Heavy-duty 3-compartment and 4-compartment bagasse meal trays with lids. Custom wholesale supply for schools, airlines, and institutional catering."
+  },
+  "square-meal-trays": {
+    title: "Compartment Bagasse Meal Trays Manufacturer | EcoLyf",
+    description: "Heavy-duty 3-compartment and 4-compartment bagasse meal trays with lids. Custom wholesale supply for schools, airlines, and institutional catering."
+  },
+  "clamshells": {
+    title: "Biodegradable Bagasse Clamshells Bulk | EcoLyf",
+    description: "Sugarcane bagasse hinged containers and clamshells for takeout. Secure lock design, thermal insulation, and fully compostable for global B2B buyers."
+  }
+};
+
+const seo = seoMetaMap[currentSlug] || {
+  title: `${currentSlug} Wholesale Catalog | EcoLyf`,
+  description: `Bulk pricing, minimum order quantities, and technical specifications for EcoLyf eco-friendly ${name}.`
+};
+
+// 3. GENERATE JSON-LD SCHEMA FOR GOOGLE
+const schemaData = {
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": `${name} - EcoLyf Bagasse`,
+  "image": data.image ? `https://eco-lyf.com${data.image}` : `https://eco-lyf.com/images/categories/${currentSlug}.webp`,
+  "description": seo.description,
+  "brand": {
+    "@type": "Brand",
+    "name": "EcoLyf"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "offerCount": data.Items.length,
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "USD",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
+    }
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Minimum Order Quantity (MOQ)",
+      "value": data.MOQ || "50000"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Lead Time",
+      "value": data.LeadTime || "15-25 Days"
+    }
+  ]
+};
+
+// Dynamic Breadcrumb Schema for [slug].astro
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { 
+      "@type": "ListItem", 
+      "position": 1, 
+      "name": "Home", 
+      "item": "https://eco-lyf.com/" 
+    },
+    { 
+      "@type": "ListItem", 
+      "position": 2, 
+      "name": "Products", 
+      "item": "https://eco-lyf.com/products" 
+    },
+    { 
+      "@type": "ListItem", 
+      "position": 3, 
+      "name": category, 
+      "item": `https://eco-lyf.com/products#${category.toLowerCase().replace(/\s+/g, '-')}` 
+    },
+    { 
+      "@type": "ListItem", 
+      "position": 4, 
+      "name": name, 
+      "item": `https://eco-lyf.com/products/${currentSlug}` 
+    }
+  ]
+};
 
 // Helper to convert technical JSON keys to readable table labels
 const formatSpecKey = (key) => {
@@ -46,7 +144,10 @@ const technicalKeys = ['Diameter', 'Depth', 'Dimensions', 'Volume', 'Weight', 'H
 const packagingKeys = ['PiecesPerPack', 'PacksPerCarton', 'PiecesPerCarton'];
 ---
 
-<MainLayout title={`${name} | EcoLyf Master Catalog`} description={`Technical specifications and supply details for ${name}.`}>
+<MainLayout title={seo.title} description={seo.description}>
+  
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   
   <div class="bg-brand-50 border-b border-brand-100 sticky top-20 z-30 shadow-sm backdrop-blur-md bg-opacity-95">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">

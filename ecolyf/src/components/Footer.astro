@@ -5,72 +5,84 @@ const year = new Date().getFullYear();
   
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
       
-      <div class="space-y-6">
-        
+      <div class="space-y-6 lg:col-span-2">
         <a href="/" class="group inline-flex items-center h-20 md:h-24 py-1.5">
           <img 
             src="/EcoLyfLogo-Light.png" 
             alt="EcoLyf Logo" 
             class="h-full w-auto object-contain origin-left transition-transform duration-300 group-hover:scale-[1.03]" 
+            onerror="this.src='/ecolyf-icon-white.svg'"
           />
         </a>
-        
-        <p class="text-brand-200 text-sm leading-relaxed mt-2">
-          Leading manufacturer and exporter of premium, 100% biodegradable bagasse tableware.
+        <p class="text-brand-200 text-sm leading-relaxed mt-2 pr-4">
+          Direct manufacturer and exporter of EN13432 certified bagasse tableware. Supplying wholesale, PFAS-free compostable packaging to the UK, EU, and global enterprise markets.
         </p>
         <div class="flex flex-wrap gap-2">
           <span class="bg-brand-900 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded border border-brand-800 text-brand-300 shadow-inner">ISO 9001:2015</span>
-          <span class="bg-brand-900 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded border border-brand-800 text-brand-300 shadow-inner">SGS Certified</span>
+          <span class="bg-brand-900 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded border border-brand-800 text-brand-300 shadow-inner">EN13432</span>
+          <span class="bg-brand-900 text-[10px] uppercase tracking-widest font-bold px-2.5 py-1 rounded border border-brand-800 text-brand-300 shadow-inner">TUV OK Compost</span>
         </div>
       </div>
 
       <div>
         <h4 class="text-white font-bold uppercase tracking-[0.2em] text-xs mb-8 border-b border-brand-800 pb-3">Products</h4>
-        <ul class="space-y-4 text-sm font-medium">
-          <li><a href="/products/10-inch-round-plate" class="text-brand-200 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brand-800 group-hover:bg-brand-400 transition-colors"></span> Bagasse Round Plates</a></li>
-          <li><a href="/products/5-compartment-tray" class="text-brand-200 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brand-800 group-hover:bg-brand-400 transition-colors"></span> Compartment Meal Trays</a></li>
-          <li><a href="/products/6-inch-dessert-plate" class="text-brand-200 hover:text-white transition-colors flex items-center gap-2 group"><span class="w-1.5 h-1.5 rounded-full bg-brand-800 group-hover:bg-brand-400 transition-colors"></span> Dessert & Side Plates</a></li>
-          <li class="pt-2"><a href="/products" class="text-brand-400 font-bold hover:text-white flex items-center gap-1 group">View Full Catalog <span class="group-hover:translate-x-1 transition-transform">→</span></a></li>
+        <ul class="space-y-3 text-sm font-medium">
+          <li><a href="/products/round-plates" class="text-brand-200 hover:text-white transition-colors">Bagasse Round Plates</a></li>
+          <li><a href="/products/square-meal-trays" class="text-brand-200 hover:text-white transition-colors">Square Meal Trays</a></li>
+          <li><a href="/products/round-meal-trays" class="text-brand-200 hover:text-white transition-colors">Round Meal Trays</a></li>
+          <li><a href="/products/soup-bowls" class="text-brand-200 hover:text-white transition-colors">Compostable Bowls</a></li>
+          <li><a href="/products/clamshells" class="text-brand-200 hover:text-white transition-colors">Takeaway Clamshells</a></li>
+          <li class="pt-3">
+            <a href="/products" class="text-brand-400 font-bold hover:text-white flex items-center gap-1 group">
+              Master Catalog <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+          </li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-white font-bold uppercase tracking-[0.2em] text-xs mb-8 border-b border-brand-800 pb-3">Quick Links</h4>
-        <ul class="space-y-4 text-sm font-medium text-brand-200">
-          <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
-          <li><a href="/products" class="hover:text-white transition-colors">Products</a></li>
-          <li><a href="/files/ecolyf-catalogue.pdf" download class="hover:text-white transition-colors">Catalogue</a></li>
-          <li><a href="/#about" class="hover:text-white transition-colors">About Us</a></li>
-          <li><a href="/#contact" class="hover:text-white transition-colors">Contact</a></li>
-          <li><a href="/#quote" class="text-brand-400 font-bold hover:text-white transition-colors">Enquiry</a></li>
+        <h4 class="text-white font-bold uppercase tracking-[0.2em] text-xs mb-8 border-b border-brand-800 pb-3">Company</h4>
+        <ul class="space-y-3 text-sm font-medium text-brand-200">
+          <li><a href="/#about" class="hover:text-white transition-colors">Manufacturing Facility</a></li>
+          <li><a href="/certifications" class="hover:text-white transition-colors">Certifications & Testing</a></li>
+          <li><a href="/resources" class="hover:text-white transition-colors">Resource Center</a></li>
+          <li><a href="/faq" class="hover:text-white transition-colors">B2B Procurement FAQ</a></li>
+          <li><a href="/uk-wholesale" class="hover:text-white transition-colors">UK Wholesale & Logistics</a></li>
+          <li><a href="/eu-export" class="hover:text-white transition-colors">EU Export Hub</a></li>
+          <li><a href="/files/ecolyf-catalogue.pdf" download class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fas fa-file-pdf text-brand-400"></i>Download PDF</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-white font-bold uppercase tracking-[0.2em] text-xs mb-8 border-b border-brand-800 pb-3">HQ Contact</h4>
-        <address class="not-italic text-sm space-y-5">
+        <h4 class="text-white font-bold uppercase tracking-[0.2em] text-xs mb-8 border-b border-brand-800 pb-3">Contact</h4>
+        <address class="not-italic text-sm space-y-4">
           <div class="flex items-start">
-            <svg class="w-5 h-5 text-brand-500 mr-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <svg class="w-5 h-5 text-brand-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             <span class="text-brand-200 leading-relaxed">Trichirappalli, Tamil Nadu<br/><span class="text-brand-400 text-xs font-bold">India (GMT +5:30)</span></span>
           </div>
           <div class="flex items-center">
-            <svg class="w-5 h-5 text-brand-500 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <svg class="w-5 h-5 text-brand-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
             <a href="mailto:sales@eco-lyf.com" class="text-white hover:text-brand-300 font-bold transition-colors">sales@eco-lyf.com</a>
           </div>
           <div class="flex items-center">
-            <svg class="w-5 h-5 text-brand-500 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <svg class="w-5 h-5 text-brand-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
             <a href="tel:+918608503282" class="text-white hover:text-brand-300 font-bold transition-colors">+91 860 850 3282</a>
           </div>
         </address>
+        <div class="mt-6">
+          <a href="/#quote" class="inline-block bg-brand-600 text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded hover:bg-brand-500 transition-colors">Request Quote</a>
+        </div>
       </div>
+
     </div>
 
-    <div class="border-t border-brand-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="flex items-center gap-4">
+    <div class="border-t border-brand-900 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6">
+      
+      <div class="flex items-center gap-4 flex-wrap justify-center">
         <p class="text-[10px] uppercase tracking-widest text-brand-400 font-bold">
-          &copy; {year} EcoLyf International.
+          &copy; {year} EcoLyf International Exports.
         </p>
         <span class="h-4 w-px bg-brand-800 hidden md:block"></span>
         <div class="flex space-x-4 text-[10px] font-mono text-brand-500">
@@ -79,9 +91,12 @@ const year = new Date().getFullYear();
         </div>
       </div>
       
-      <p class="text-[10px] font-black text-brand-500 uppercase tracking-[0.3em]">
-        Verified Global Exporter
-      </p>
+      <div class="flex items-center gap-6 text-[10px] font-bold text-brand-500 uppercase tracking-widest">
+        <a href="/privacy" class="hover:text-brand-300 transition-colors">Privacy Policy</a>
+        <a href="/terms" class="hover:text-brand-300 transition-colors">Terms of Trade</a>
+        <span class="text-brand-400 border border-brand-800 px-2 py-1 rounded bg-brand-900">Verified Global Exporter</span>
+      </div>
+
     </div>
 
   </div>
