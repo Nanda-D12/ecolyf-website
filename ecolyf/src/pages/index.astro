@@ -11,6 +11,7 @@ import Contact from '../components/Contact.astro';
 import WhyChooseUs from '../components/WhyChooseUs.astro';
 import AboutUs from '../components/AboutUs.astro';
 import Life from '../components/Life.astro';
+import { getCollection } from 'astro:content';
 
 // Native Astro optimized Image component
 import { Image } from 'astro:assets';
@@ -41,6 +42,11 @@ const getPillLabel = (item) => {
   if (item.Diameter) return item.Diameter.split(' ')[0];
   return item.Name ? item.Name.split(' ')[0] : 'Item';
 };
+
+const allResources = await getCollection('resources', ({ data }) => data.draft !== true);
+const latestResources = allResources
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
 ---
 
 <MainLayout 
@@ -139,6 +145,42 @@ const getPillLabel = (item) => {
   <Life />
   <ImpactCalculator />
   <FAQ />
+
+  <section class="py-24 px-4 max-w-7xl mx-auto border-t border-brand-100">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+      <div>
+        <h2 class="text-[10px] font-extrabold text-brand-500 tracking-[0.2em] uppercase mb-3">Enterprise Compliance</h2>
+        <h3 class="text-3xl md:text-4xl font-black text-brand-950 tracking-tight">Supply Chain Intelligence</h3>
+      </div>
+      <a href="/resources" class="text-[10px] font-bold uppercase tracking-widest text-brand-600 hover:text-brand-800 flex items-center gap-1 group">
+        View All Resources <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {latestResources.map(resource => (
+        <a href={`/resources/${resource.id}`} class="group flex flex-col h-full bg-brand-50 rounded-2xl border border-brand-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="p-8 flex-grow flex flex-col">
+            <div class="flex gap-2 mb-4 flex-wrap">
+              {resource.data.tags.slice(0,2).map(tag => (
+                <span class="text-[9px] font-bold uppercase tracking-widest text-brand-500 bg-white border border-brand-200 px-2 py-1 rounded">{tag}</span>
+              ))}
+            </div>
+            <h4 class="text-lg font-black text-brand-950 mb-3 group-hover:text-brand-600 transition-colors leading-tight line-clamp-3">
+              {resource.data.title}
+            </h4>
+            <p class="text-brand-700 text-sm mb-6 flex-grow line-clamp-3">
+              {resource.data.description}
+            </p>
+            <div class="text-[10px] font-black uppercase tracking-widest text-brand-400 mt-auto flex items-center gap-1 group-hover:text-brand-600 transition-colors">
+              Read Whitepaper <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
   <Contact />
 
   <section id="quote" class="relative bg-brand-50 py-24 px-4 border-y border-brand-100 overflow-hidden">

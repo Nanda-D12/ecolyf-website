@@ -1,0 +1,44 @@
+---
+// src/pages/resources/index.astro
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const allResources = await getCollection('resources', ({ data }) => {
+  return data.draft !== true;
+});
+
+// Sort newest to oldest
+const sortedResources = allResources.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<MainLayout title="B2B Resource Center | EcoLyf" description="Technical whitepapers, compliance guides, and import logistics strategies for the sustainable bagasse packaging industry.">
+  
+  <section class="py-24 bg-brand-50 border-b border-brand-100">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-black text-brand-950 tracking-tight mb-6">B2B Resource Center</h1>
+      <p class="text-brand-700 max-w-2xl mx-auto font-medium text-lg">Technical intelligence, compliance frameworks, and procurement guides for enterprise importers.</p>
+    </div>
+  </section>
+
+  <section class="py-20 max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sortedResources.map(resource => (
+        <a href={`/resources/${resource.id}`} class="group flex flex-col h-full bg-white rounded-2xl border border-brand-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div class="p-8 flex-grow flex flex-col">
+            <div class="flex gap-2 mb-4 flex-wrap">
+              {resource.data.tags.slice(0,2).map(tag => (
+                <span class="text-[9px] font-bold uppercase tracking-widest text-brand-500 bg-brand-50 px-2 py-1 rounded">{tag}</span>
+              ))}
+            </div>
+            <h2 class="text-xl font-black text-brand-950 mb-3 group-hover:text-brand-600 transition-colors leading-tight">{resource.data.title}</h2>
+            <p class="text-brand-700 text-sm mb-6 flex-grow">{resource.data.description}</p>
+            <div class="text-[10px] font-black uppercase tracking-widest text-brand-400 mt-auto flex items-center gap-1 group-hover:text-brand-600 transition-colors">
+              Read Whitepaper <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+</MainLayout>

@@ -1,5 +1,6 @@
 /* global.css */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   /* The Whisper Backgrounds: Ultra-clean whites with a microscopic forest tint */
